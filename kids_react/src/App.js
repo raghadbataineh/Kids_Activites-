@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import './App.css';
 import Footer from './components/layouts/footer';
 import Navbar from './components/layouts/Navbar';
@@ -5,9 +6,10 @@ import Navbar from './components/layouts/Navbar';
 function App() {
   return (
     <div className="App">
-      <Navbar />
+       <Navbar />
           
       <Footer />
+   
     </div>
   );
 }

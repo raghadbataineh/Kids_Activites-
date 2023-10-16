@@ -3,7 +3,7 @@ import React from 'react';
 const Navbar = () => {
   return (
     <header className="header_part">
-      <div className="sub_header section_bg">
+      {/* <div className="sub_header section_bg">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-xl-6 col-lg-7 col-md-8">
@@ -32,7 +32,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="header">
         <div className="container">
           <div className="row align-items-center">

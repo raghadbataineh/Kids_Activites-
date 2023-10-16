@@ -83,11 +83,11 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer_bg">
-        <img src="img/footer_bg.png" alt="#" className="img-fluid" />
+        <img src="https://images-ext-1.discordapp.net/external/4FDDfbcP4hr_cHsaupTLJLM-SWrYGgTBQdO_9UoFUX0/https/html.droitlab.com/kidzo/img/footer_bg.png?width=1440&height=406" alt="#" className="img-fluid" />
       </div>
       <div className="footer_animation_3">
         <div data-parallax='{"x": 30, "y": 70, "rotateZ":0}'>
-          <img src="img/footer_img.png" alt="#" />
+          <img src="https://images-ext-1.discordapp.net/external/32l94shO4VaigxF4QarMX9cxPHXSMspiyXtvGb-W-xQ/https/html.droitlab.com/kidzo/img/footer_img.png?width=532&height=378" alt="#" />
         </div>
       </div>
     </footer>
