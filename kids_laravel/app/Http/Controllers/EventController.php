@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -14,8 +15,12 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+       
     }
+public function Events($id){
+    $events = Event::where('category_id',$id)->with(['category','organizer'])->get();
+    return response()->json($events);
+}
 
     /**
      * Show the form for creating a new resource.
