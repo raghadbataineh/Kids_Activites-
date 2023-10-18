@@ -1,5 +1,7 @@
 'use strict';
+import $ from 'jquery';
 $(function () {
+	
 	let mainClass = '.dl_countdown_content';
 	let OffsetLocation = -4;
 	let runningClass = '.dl_countdown_running'; //optinonal

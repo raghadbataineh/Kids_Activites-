@@ -1,6 +1,7 @@
-import React from 'react';
+
 
 const Footer = () => {
+
   return (
     <footer className="footer_section home_two_footer">
       <div className="container">

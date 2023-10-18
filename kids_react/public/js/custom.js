@@ -1,4 +1,6 @@
-(function ($) {
+import $ from 'jquery';
+(
+    function ($) {
     "use strict";
 
     //sticky menu
@@ -223,35 +225,11 @@
         var $info = $('#contactMap').data('info');
         var $markerLat = $('#contactMap').data('mlat');
         var $markerLon = $('#contactMap').data('mlon');
-        var map = new GMaps({
-            el: '#contactMap',
-            lat: $lat,
-            lng: $lon,
-            scrollwheel: false,
-            scaleControl: true,
-            streetViewControl: false,
-            panControl: true,
-            disableDoubleClickZoom: true,
-            mapTypeControl: false,
-            zoom: $zoom,
-        });
-        map.addMarker({
-            lat: $markerLat,
-            lng: $markerLon,
-            icon: $marker,
-            infoWindow: {
-                content: $info
-            }
-        })
+   
+      
     }
     //wow js
-    var wow = new WOW({
-        animateClass: 'animated',
-        offset: 100,
-        mobile: false,
-        duration: 1000,
-    });
-    wow.init();
+  
 
 
     //audio player
@@ -355,15 +333,8 @@
         }
     }
 
-    function kidjoHover() {
-        jQuery('svg.pc-dashes').each(function () {
-            var svg = jQuery(this);
-            kidjo_rect_wrap(svg);
-        });
-    }
-    $(document).ready(function () {
-        kidjoHover();
-    });
+   
+   
 
 
     $('[data-bg-color]').each(function(){
@@ -375,4 +346,4 @@
 
 
 
-}(jQuery));
+}());
