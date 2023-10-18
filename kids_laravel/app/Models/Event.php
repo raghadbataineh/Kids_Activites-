@@ -28,6 +28,6 @@ class Event extends Model
         return $this->belongsTo(Category::class);
     }
     public function organizer(){
-        return $this->belongsTo(Organizer::class);
+        return $this->belongsTo(Organizer::class,'organize_id');
     }
 }

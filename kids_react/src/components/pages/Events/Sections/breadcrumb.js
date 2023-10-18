@@ -20,32 +20,32 @@ const Breadcrumb = () => {
             </div>
             <div className="breadcrumb_animation_4">
                 <div >
-                    <img src="img/icon/banner_icon/animated_banner_4.png" alt="#" />
+                    <img src="../../../../img/icon/banner_icon/animated_banner_4.png" alt="#" />
                 </div>
             </div>
             <div className="breadcrumb_animation_5">
                 <div >
-                    <img src="img/icon/banner_icon/animated_banner_5.png" alt="#" />
+                    <img src="../../../../img/icon/banner_icon/animated_banner_5.png" alt="#" />
                 </div>
             </div>
             <div className="breadcrumb_animation_7">
                 <div >
-                    <img src="img/icon/banner_icon/animated_banner_15.png" alt="#" />
+                    <img src="../../../../img/icon/banner_icon/animated_banner_15.png" alt="#" />
                 </div>
             </div>
             <div className="breadcrumb_animation_10">
                 <div >
-                    <img src="img/icon/banner_icon/animated_banner_10.png" alt="#" />
+                    <img src="../../../../img/icon/banner_icon/animated_banner_10.png" alt="#" />
                 </div>
             </div>
             <div className="breadcrumb_animation_12">
                 <div >
-                    <img src="img/icon/banner_icon/animated_banner_20.png" alt="#" />
+                    <img src="../../../../img/icon/banner_icon/animated_banner_20.png" alt="#" />
                 </div>
             </div>
             <div className="breadcrumb_animation_13">
                 <div>
-                    <img src="img/icon/banner_icon/animated_banner_21.png" alt="#" />
+                    <img src="../../../../img/icon/banner_icon/animated_banner_21.png" alt="#" />
                 </div>
             </div>
         </section>

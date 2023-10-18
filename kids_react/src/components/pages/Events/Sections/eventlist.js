@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Link} from "react-router-dom";
+
 
 const EventList = ({ events }) => {
     function formatTime(timeString) {
@@ -35,7 +37,7 @@ const EventList = ({ events }) => {
                                     <div className="event_list_content">
                                         <h5>{event.date}</h5>
                                         <h3>
-                                            <a href="event_details.html">{event.name}</a>
+                                            <Link to={`/single/${event.id}`}>{event.name}</Link>
                                         </h3>
                                         <p>{event.short_description}</p>
                                         <ul>
@@ -51,13 +53,13 @@ const EventList = ({ events }) => {
                 </div>
             </div>
             <div className="event_list_animation_1">
-                <div data-parallax='{"x": 2, "y": 70, "rotateZ":0}'><img src="img/icon/icon_5.png" alt="#" /></div>
+                <div data-parallax='{"x": 2, "y": 70, "rotateZ":0}'><img src="../../../../img/icon/icon_5.png" alt="#" /></div>
             </div>
             <div className="event_list_animation_3">
-                <div data-parallax='{"x": 30, "y": 60, "rotateZ":0}'><img src="img/icon/icon_7.png" alt="#" /></div>
+                <div data-parallax='{"x": 30, "y": 60, "rotateZ":0}'><img src="../../../../img/icon/icon_7.png" alt="#" /></div>
             </div>
             <div className="event_list_animation_4">
-                <div data-parallax='{"x": 30, "y": -50, "rotateZ":0}'><img src="img/icon/icon_8.png" alt="#" className="img-fluid" /></div>
+                <div data-parallax='{"x": 30, "y": -50, "rotateZ":0}'><img src="../../../../img/icon/icon_8.png" alt="#" className="img-fluid" /></div>
             </div>
         </section>
     );

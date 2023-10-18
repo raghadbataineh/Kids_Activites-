@@ -20,8 +20,8 @@ return new class extends Migration
             $table->text('short_description');
             $table->text('long_description');
             $table->date('date');
-            $table->date('start_time');
-            $table->date('end_time');
+            $table->time('start_time');
+            $table->time('end_time');
             $table->text('location');
             $table->text('image2')->nullable();
             $table->double('price');

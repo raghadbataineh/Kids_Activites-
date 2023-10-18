@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EventSection = ({events}) => {
+const EventSection = ({events} ) => {
     return (
         <section className="event_section section_padding">
             <div className="container custom_container">
@@ -51,22 +51,22 @@ const EventSection = ({events}) => {
             </div>
             <div className="about_page_animation_1">
                 <div data-parallax='{"x": 2, "y": 70, "rotateZ":0}'>
-                    <img src="img/icon/icon_7.png" alt="#" />
+                    <img src="../../../../img/icon/icon_7.png" alt="#" />
                 </div>
             </div>
             <div className="about_page_animation_2">
                 <div data-parallax='{"x": 10, "y": 80, "rotateZ":0}'>
-                    <img src="img/icon/event_6.png" alt="#" />
+                    <img src="../../../../img/icon/event_6.png" alt="#" />
                 </div>
             </div>
             <div className="about_page_animation_3">
                 <div data-parallax='{"x": 30, "y": 60, "rotateZ":0}'>
-                    <img src="img/icon/banner_two_2.png" alt="#" />
+                    <img src="../../../../img/icon/banner_two_2.png" alt="#" />
                 </div>
             </div>
             <div className="about_page_animation_4">
                 <div data-parallax='{"x": 30, "y": -50, "rotateZ":0}'>
-                    <img src="img/icon/team_animation.png" alt="#" className="img-fluid" />
+                    <img src="../../../../img/icon/team_animation.png" alt="#" className="img-fluid" />
                 </div>
             </div>
         </section>
