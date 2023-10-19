@@ -30,7 +30,7 @@ class OrganizerController extends Controller
      */
     public function create()
     {
-        return view('dashboard.categories.create');
+        return view('Admin\orgnizer\addorgnizer');
 
     }
 
@@ -92,8 +92,8 @@ class OrganizerController extends Controller
      */
     public function show( $id)
     {
-        $orgnizers = Organizer::find($id);
-        return response()->json($orgnizers);
+        $orgnizer = Organizer::find($id);
+    return view('Admin/orgnizer/orgnizerdetail', compact('orgnizer'));
     }
 
     /**

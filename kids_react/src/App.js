@@ -1,33 +1,36 @@
-// import { Helmet } from 'react-helmet';
 import './App.css';
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Footer from './components/layouts/footer';
 import Navbar from './components/layouts/Navbar';
+import Home from './components/pages/Home/Home';
+import EventDetails from './components/pages/EventDetail/eventDetail';
+import Event from './components/pages/Events/Events';
+import About from './components/pages/About/about';
 import Teacher from './components/pages/Teacher/Teacher'
-import { BrowserRouter as Router, Route , Routes } from 'react-router-dom';
+import { BrowserRouter , Router, Route , Routes } from 'react-router-dom';
 
 import Teacher_Details from './components/pages/TeacherDetails/TeacherDetails';
 
-
 function App() {
   return (
-    <Router>
-          <Navbar />
-          {/* <Teacher /> */}
+    <BrowserRouter>
+      <Navbar/>
 
-    <Routes>
-    <Route path="/" element={<Teacher />} />
-        <Route path="/teacher_details/:id" element={<Teacher_Details />} />
-    </Routes>
-    <Footer />
+      <Routes>
+          <Route  path="/" element={<Home />} />
+          <Route  path="/events/:id" element={<Event />} />
+          <Route  path="/single/:id" element={<EventDetails />} />
+          <Route path="/teacher" element={<Teacher />} />
+           <Route path="/teacher_details/:id" element={<Teacher_Details />} />
+          <Route  path="/About" element={<About />} />
 
-  </Router>
-);
-    // <div className="App">
-    //    <Navbar />
-    //    <Teacher_Details />   
-    //   <Footer />
-    // </div>
-  
+          
+      </Routes>
+      <Footer/>
+    </BrowserRouter>
+  );
 }
 
 export default App;
+

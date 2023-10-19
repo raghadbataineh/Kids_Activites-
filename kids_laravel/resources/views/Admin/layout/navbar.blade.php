@@ -20,6 +20,8 @@
         content="dashboard, material, material design, bootstrap 5 dashboard, bootstrap 5 design, bootstrap 5">
     <!-- Canonical SEO -->
     <link rel="canonical" href="https://themeselection.com/item/materio-bootstrap-html-admin-template/">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
     {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> --}}
     <!-- ? PROD Only: Google Tag Manager (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
@@ -208,14 +210,14 @@
                 <ul class="menu-inner py-1">
                     <!-- Dashboard -->
                     <li class="menu-item {{ request()->is('index') ? 'active' : '' }}">
-                        <a href="{{ route('index') }}" class="menu-link">
+                        {{-- <a href="{{ route('index') }}" class="menu-link">
                             <i class="menu-icon tf-icons mdi mdi-home-circle"></i>
                             <div>Dashboard</div>
-                        </a>
+                        </a> --}}
                     </li>
-
+                
                     <!-- User interface -->
-                    <li class="menu-item">
+                    {{-- <li class="menu-item">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons mdi mdi-basket"></i>
                             <div>Products</div>
@@ -232,40 +234,60 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
+                    {{-- Mohammad ghzawi --}}
                     <li class="menu-item">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons mdi mdi-cart"></i>
-                            <div>orders</div>
+                            <div>Users</div>
                         </a>
                         <ul class="menu-sub ">
-                            <li class="menu-item {{ request()->is('order') ? 'active' : '' }}">
-                                <a href="{{ asset('order') }}" class="menu-link">
-                                    <div>order list</div>
+                            <li class="menu-item {{ request()->is('orgnizer') ? 'active' : '' }}">
+                                <a href="{{ route('orgnizer.index') }}" class="menu-link">
+                                    <div>User list</div>
                                 </a>
                             </li>
                         </ul>
+                    </li>
+                    {{--End Mohammad ghzawi --}}
+                     
+                    {{-- Start Raghad bataineh --}}
+                    <li class="menu-item">
+                        <a href="javascript:void(0)" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons mdi mdi-cart"></i>
+                            <div>Orgnizers</div>
+                        </a>
+                        <ul class="menu-sub ">
+                            <li class="menu-item {{ request()->is('orgnizer') ? 'active' : '' }}">
+                                <a href="{{ route('orgnizer.index') }}" class="menu-link">
+                                    <div>Orgnizer list</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                     {{-- End Raghad bataineh --}}
+
                     <li class="menu-item">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons mdi mdi-account-outline"></i>
                             <div>Customer</div>
                         </a>
                         <ul class="menu-sub ">
-                            <li class="menu-item {{ request()->is('customer') ? 'active' : '' }}">
+                            {{-- <li class="menu-item {{ request()->is('customer') ? 'active' : '' }}">
                                 <a href="{{ asset('customer') }}" class="menu-link">
                                     <div>All Customer</div>
                                 </a>
-                            </li>
+                            </li> --}}
                             {{-- <li class="menu-item {{ request()->routeIs('customerdetail') ? 'active' : '' }} ">
                                 <a href="{{route('customerdetail')}}" class="menu-link">
                                     <div>Customer detail</div>
                                 </a>
                             </li> --}}
-                            <li class="menu-item {{ request()->is('addcustomer') ? 'active' : '' }} ">
+                            {{-- <li class="menu-item {{ request()->is('addcustomer') ? 'active' : '' }} ">
                                 <a href="{{ url('/customer/create') }}" class="menu-link">
                                     <div>Add Customer </div>
                                 </a>
-                            </li>
+                            </li> --}}
 
                         </ul>
                         <li class="menu-item">
@@ -274,7 +296,7 @@
                                 <div>Category</div>
                             </a>
                             <ul class="menu-sub ">
-                                <li class="menu-item {{ request()->is('category') ? 'active' : '' }}">
+                                {{-- <li class="menu-item {{ request()->is('category') ? 'active' : '' }}">
                                     <a href="{{ asset('/category') }}" class="menu-link">
                                         <div>Category list</div>
                                     </a>
@@ -283,7 +305,7 @@
                                     <a href="{{ url('/category/create') }}" class="menu-link">
                                         <div>Add Category</div>
                                     </a>
-                                </li>
+                                </li> --}}
                             </ul>
                     <li class="menu-item">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
@@ -291,7 +313,7 @@
                             <div>stores</div>
                         </a>
                         <ul class="menu-sub ">
-                            <li class="menu-item {{ request()->is('store') ? 'active' : '' }}">
+                            {{-- <li class="menu-item {{ request()->is('store') ? 'active' : '' }}">
                                 <a href="{{ asset('/store') }}" class="menu-link">
                                     <div>stores list</div>
                                 </a>
@@ -300,10 +322,10 @@
                                 <a href="{{ url('/store/create') }}" class="menu-link">
                                     <div>Add Store</div>
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
 
-                    <li class="menu-item {{ request()->is('review') ? 'active' : '' }}">
+                    {{-- <li class="menu-item {{ request()->is('review') ? 'active' : '' }}">
                         <a href="{{ asset('/review') }}" class="menu-link">
                             <i class="menu-icon tf-icons mdi mdi-star"></i>
                             <div>Reviews</div>
@@ -320,7 +342,7 @@
                             <i class="menu-icon tf-icons mdi mdi-content-paste"></i>
                             <div>Provider</div>
                         </a>
-                    </li>
+                    </li> --}}
             </aside>
             <!-- / Menu -->
 
@@ -371,10 +393,10 @@
                                         <div class="dropdown-divider"></div>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{{ route('profile') }}">
+                                        {{-- <a class="dropdown-item" href="{{ route('profile') }}">
                                             <i class="mdi mdi-account-outline me-2"></i>
                                             <span class="align-middle">My Profile</span>
-                                        </a>
+                                        </a> --}}
                                     </li>
 
                                     <li>

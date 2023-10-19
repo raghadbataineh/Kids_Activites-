@@ -23,4 +23,5 @@ Route::get('/dashboard', function () {
 });
 
 
-Route::resource('Admin/orgnizer', OrganizerController::class );
+// Route::resource('Admin/orgnizer', OrganizerController::class );
+Route::resource('orgnizer', OrganizerController::class);

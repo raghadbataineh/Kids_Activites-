@@ -11,8 +11,10 @@
     "jquery": "^3.7.1",
     "jQuery": "^1.7.4",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.9.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
+    "react-parallax": "^3.5.1",
     "react-router-dom": "^6.17.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
