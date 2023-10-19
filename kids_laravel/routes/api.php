@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
@@ -24,3 +25,5 @@ Route::get('/events/{id}',[EventController::class,'Events']);
 
 Route::get('/EventDetails/{id}',[EventController::class,'EventDetails']);
 Route::get('/category',[CategoryController::class,'index']);
+Route::post('/storeReview',[ReviewController::class,'storeReview']);
+Route::get('/showReview',[ReviewController::class,'showReview']);

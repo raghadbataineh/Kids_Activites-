@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->string('last_name');
             $table->string('email');
             $table->string('password');
-            $table->text('image')->default('default.png');
+            $table->text('image')->default('http://127.0.0.1:8000/images/Users/default.png');
             $table->text('phone');
             $table->text('Role');
             $table->rememberToken();

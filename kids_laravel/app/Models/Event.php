@@ -23,6 +23,7 @@ class Event extends Model
         'price',
         'category_id',
         'organize_id',
+        'status',
     ];
     public function category(){
         return $this->belongsTo(Category::class);

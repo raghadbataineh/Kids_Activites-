@@ -16,7 +16,22 @@ class ReviewController extends Controller
     {
         //
     }
-
+    public function storeReview(Request $request)
+    {
+        
+        $review=Review::create([
+            'comment' => $request->comment,
+            'user_id'=>1,
+            'category_id'=>1
+        ]);
+        return response()->json($review);
+    }
+    public function showReview()
+    {
+        
+        $review=Review::with('user')->get();
+        return response()->json($review);
+    }
     /**
      * Show the form for creating a new resource.
      *

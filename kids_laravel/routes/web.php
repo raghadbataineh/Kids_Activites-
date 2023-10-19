@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/index', function () {
+    return view('Admin.index');
+})->name('index');
+
+ Route::resource("/category", CategoryController::class);
+Route::resource("/event", EventController::class);
+Route::get('/eventsdetail/{id}', [EventController::class, 'show'])->name('orderdetails');
