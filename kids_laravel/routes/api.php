@@ -1,8 +1,13 @@
 <?php
 
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrganizerController;
+use App\Http\Controllers\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +27,14 @@ Route::post('/sign', [UserController::class, 'userCreate']);
 Route::post('login', [UserController::class, 'userCheck']);
 
 
+
+// Route::resource('orgnizers', OrganizerController::class);
+Route::get('orgnizers', [OrganizerController::class , 'shoew_orgnizer']);
+Route::get('orgnizers/{id}', [OrganizerController::class , 'show_details']);
+Route::get('/events/{id}',[EventController::class,'Events']);
+
+Route::get('/EventDetails/{id}',[EventController::class,'EventDetails']);
+Route::get('/category',[CategoryController::class,'index']);
+Route::post('/storeReview',[ReviewController::class,'storeReview']);
+Route::get('/showReview',[ReviewController::class,'showReview']);
+Route::get('/category',[CategoryController::class,'category']);

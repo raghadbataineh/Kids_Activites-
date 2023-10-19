@@ -23,11 +23,12 @@ class Event extends Model
         'price',
         'category_id',
         'organize_id',
+        'status',
     ];
     public function category(){
         return $this->belongsTo(Category::class);
     }
     public function organizer(){
-        return $this->belongsTo(Organizer::class);
+        return $this->belongsTo(Organizer::class,'organize_id');
     }
 }

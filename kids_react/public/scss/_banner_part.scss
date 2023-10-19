@@ -303,7 +303,7 @@
 .home_two_banner {
     .single_banner_part {
         &.home_two_bg {
-            @include background ("../img/home_2_banner.png");
+            @include background ("https://html.droitlab.com/kidzo/img/home_2_banner.png");
             background-position: center right;
         }
 
