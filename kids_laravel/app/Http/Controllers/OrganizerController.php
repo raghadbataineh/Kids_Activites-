@@ -95,6 +95,12 @@ class OrganizerController extends Controller
         $orgnizer = Organizer::find($id);
     return view('Admin/orgnizer/orgnizerdetail', compact('orgnizer'));
     }
+    public function show_details( $id)
+    {
+        $orgnizer = Organizer::find($id);
+        return response()->json($orgnizer);
+
+    }
 
     /**
      * Show the form for editing the specified resource.

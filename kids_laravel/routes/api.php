@@ -23,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Route::resource('orgnizers', OrganizerController::class);
 Route::get('orgnizers', [OrganizerController::class , 'shoew_orgnizer']);
-Route::get('orgnizers/{id}', [OrganizerController::class , 'show']);
+Route::get('orgnizers/{id}', [OrganizerController::class , 'show_details']);
 Route::get('/events/{id}',[EventController::class,'Events']);
 Route::get('/EventDetails/{id}',[EventController::class,'EventDetails']);
 Route::get('/category',[CategoryController::class,'index']);
