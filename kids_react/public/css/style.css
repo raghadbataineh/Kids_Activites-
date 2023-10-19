@@ -164,7 +164,7 @@ p {
   line-height: 26px;
   font-size: 15px;
   margin-bottom: 0px;
-  color: #8f9093;
+  color: black;
   font-family: "Nunito", sans-serif;
   font-weight: 500;
 }
@@ -7001,7 +7001,8 @@ a.elementor-button, .elementor-button:hover {
 .contact_part {
   position: relative;
   z-index: 1;
-  background-image: url("../img/contact_bg.png");
+  /* background-image: url("../img/contact_bg.png"); */
+  background-color: #f5fbfb;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
