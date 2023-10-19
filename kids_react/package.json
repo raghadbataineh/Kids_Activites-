@@ -11,21 +11,15 @@
     "html-react-parser": "^4.2.5",
     "jquery": "npm:jQuery@^1.7.4",
     "jQuery": "^1.7.4",
-<<<<<<< HEAD
     "mdb-react-ui-kit": "^6.3.0",
-=======
     "quill": "^1.3.7",
->>>>>>> 448b86336d4607c854a560f446ff0bae61aba147
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
-<<<<<<< HEAD
-    "react-redux": "^8.1.3",
-=======
     "react-parallax": "^3.5.1",
     "react-quill": "^2.0.0",
->>>>>>> 448b86336d4607c854a560f446ff0bae61aba147
+    "react-redux": "^8.1.3",
     "react-router-dom": "^6.17.0",
     "react-scripts": "5.0.1",
     "redux": "^4.2.1",

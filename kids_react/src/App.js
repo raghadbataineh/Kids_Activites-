@@ -28,8 +28,8 @@ function App() {
            <Route path="/teacher_details/:id" element={<Teacher_Details />} />
           <Route  path="/About" element={<About />} />
 
-          <Route path="/register" component={Register} />
-          <Route path="/login" component={Login} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
           
       </Routes>
       <Footer/>
