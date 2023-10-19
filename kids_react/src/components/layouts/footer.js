@@ -1,4 +1,4 @@
-
+import image from '../../img/logo.png'
 
 const Footer = () => {
 
@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="col-lg-3 col-sm-6 wow fadeInDown" data-wow-delay=".3s">
             <div className="single_footer_widget">
               <a href="index.html" className="footer_logo">
-                <img src="img/logo.png" alt="#" />
+                <img src={image} alt="#" />
               </a>
               <p>
                 Lorem ipsum dolor sit consectetur sicing elit, sed do eitempor

@@ -3,6 +3,10 @@ import axios from "axios";
 import Nav from "react-bootstrap/Nav";
 import { NavLink , Link } from "react-router-dom";
 
+// import '../../css/animate.css';
+// import '../../css/style.css';
+// import '../../css/bootstrap.min.css';
+import image from '../../img/logo.png'
 
 const Navbar = () => {
   const [data, setData] = useState([]);
@@ -27,7 +31,7 @@ const Navbar = () => {
               <nav className="navbar navbar-expand-lg navbar-light">
                 <a className="navbar-brand" href="index.html">
                   <img
-                    src="img/logo.png"
+                    src={image}
                     srcSet="img/ratina_logo.png 2x"
                     alt="Kidzo"
                   />

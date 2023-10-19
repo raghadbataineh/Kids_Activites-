@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const EventList = ({ events }) => {
@@ -27,27 +27,30 @@ const EventList = ({ events }) => {
                     </div>
                 </div>
                 <div className="row justify-content-center">
-                    {events.map((event) => (
-
-                            <div className="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay=".2s" key={event.id}>
-                                <div className="single_event_list">
-                                    <div className="event_list_img">
-                                        <img src={event.image} alt={event.name} className="img-fluid" />
-                                    </div>
-                                    <div className="event_list_content">
-                                        <h5>{event.date}</h5>
-                                        <h3>
-                                            <Link to={`/single/${event.id}`}>{event.name}</Link>
-                                        </h3>
-                                        <p>{event.short_description}</p>
-                                        <ul>
-                                            <li><i className="fas fa-clock"></i>Time: <span>{formatTime(event.start_time)} - {formatTime(event.end_time)}</span></li>
-                                            <li><i className="fas fa-map-marker-alt"></i>Location: <span>{event.location}</span></li>
-                                        </ul>
+                    {events.map((event) => {
+                        if (event.status === 'active') {
+                            return (
+                                <div className="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay=".2s" key={event.id}>
+                                    <div className="single_event_list">
+                                        <div className="event_list_img">
+                                            <img src={event.image} alt={event.name} className="img-fluid" />
+                                        </div>
+                                        <div className="event_list_content">
+                                            <h5>{event.date}</h5>
+                                            <h3>
+                                                <Link to={`/single/${event.id}`}>{event.name}</Link>
+                                            </h3>
+                                            <p>{event.short_description}</p>
+                                            <ul>
+                                                <li><i className="fas fa-clock"></i>Time: <span>{formatTime(event.start_time)} - {formatTime(event.end_time)}</span></li>
+                                                <li><i className="fas fa-map-marker-alt"></i>Location: <span>{event.location}</span></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                    ))}
+                            );
+                        }
+                    })}
 
 
                 </div>
