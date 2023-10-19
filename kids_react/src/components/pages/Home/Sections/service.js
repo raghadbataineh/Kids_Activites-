@@ -41,7 +41,12 @@ const Services = () => {
         <div key={item.id} className="col-lg-4 col-sm-6 wow fadeInDown" data-wow-delay=".3s">
           <div className="page_blog_section_wrapper">
             <a href="#" className="blog_thumbnail">
-              <img src={item.image} alt="#" className="img-fluid" />
+            <img
+  src={item.image}
+  alt="#"
+  className="img-fluid"
+  style={{ width: '290px', height: '275px' }} // Adjust the width and height values as needed
+/>
             </a>
           
             <h4 style={{ marginTop: '15px' }}>
@@ -55,9 +60,11 @@ const Services = () => {
             Discover Events <img src="img/icon/arrow_left.svg" alt="#" />
             </Link>
           </div>
+          <br></br>
         </div>
         ))}
       </div>
+      
     </div>
     <div className="story_animation_1">
       <div data-parallax='{"x": 2, "y": 120, "rotateZ":0}'>

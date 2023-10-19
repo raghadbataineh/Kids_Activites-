@@ -165,7 +165,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 
-
         /*
          * Package Service Providers...
          */

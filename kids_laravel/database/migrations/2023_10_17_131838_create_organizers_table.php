@@ -18,11 +18,12 @@ return new class extends Migration
             $table->string('name');
             $table->text('image');
             $table->string('role');
-            $table->string('experience_year');
+            $table->bigInteger('experience_year');
             $table->string('phone');
+            $table->string('email');
             $table->text('facebook')->nullable();
             $table->text('instagram')->nullable();
-            $table->bigInteger('experience_description');
+            $table->string('experience_description');
             $table->timestamps();
         });
     }

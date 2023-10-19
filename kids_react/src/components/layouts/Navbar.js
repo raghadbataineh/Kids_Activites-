@@ -86,10 +86,20 @@ const Navbar = () => {
                         ))}
                       </div>
                     </li>
-                    <li className="nav-item">
-                      <a className="nav-link" href="contact.html">
+                    {/* <li className="nav-item">
+                      <a className="nav-link" href="to=">
                         Organizers
                       </a>
+                    </li> */}
+                    <li className="nav-item">
+                      <Nav.Link
+                        as={NavLink}
+                        exact
+                        to="teacher"
+                        activeClassName="active"
+                      >
+           Organizer{" "}
+                      </Nav.Link>
                     </li>
                     <li className="nav-item">
                       <Nav.Link

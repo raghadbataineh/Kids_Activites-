@@ -18,28 +18,28 @@ const FeaturesPart = () => {
         </div>
         <div className="row justify-content-center">
           
-          <div className="col-lg-3 col-md-3">
+          <div className="col-lg-3 col-md-3 text-center">
             <div className="features_new_item">
               <img src="img/home6/school.png" alt="" />
                 <h4>Daycare Sections</h4>
               
             </div>
           </div>
-          <div className="col-lg-3 col-md-3">
+          <div className="col-lg-3 col-md-3 text-center">
             <div className="features_new_item">
               <img src="img/home6/playground.png" alt="" />
                 <h4>Playground Zones</h4>
               
             </div>
           </div>
-          <div className="col-lg-3 col-md-3">
+          <div className="col-lg-3 col-md-3 text-center">
             <div className="features_new_item">
               <img src="img/home6/fruit.png" alt="" />
                 <h4>Healthy Foods</h4>
               
             </div>
           </div>
-          <div className="col-lg-3 col-md-3">
+          <div className="col-lg-3 col-md-3 text-center">
             <div className="features_new_item">
               <img src="img/home6/medal.png" alt="" />
                 <h4>Cultural Activities</h4>
@@ -47,14 +47,14 @@ const FeaturesPart = () => {
             </div>
           </div>
           
-          <div className="col-lg-3 col-md-3">
+          <div className="col-lg-3 col-md-3 text-center">
             <div className="features_new_item">
               <img src="img/home6/teacher.png" alt="" />
                 <h4>Expert Teachers</h4>
               
             </div>
           </div>
-          <div className="col-lg-3 col-md-3">
+          <div className="col-lg-3 col-md-3 text-center">
             <div className="features_new_item">
               <img src="img/home6/paint.png" alt="" />
                 <h4>Arts & Crafts</h4>

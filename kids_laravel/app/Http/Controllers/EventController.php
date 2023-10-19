@@ -71,7 +71,7 @@ class EventController extends Controller
             'location' => $request->location,
             'date' => $request->date,
         ]);
-        Alert::success('success', 'Added Added Successfully');
+        Alert::success('success', ' Added Successfully');
         return redirect('event');
     }
 
