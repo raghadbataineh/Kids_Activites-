@@ -22,4 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/events/{id}',[EventController::class,'Events']);
 Route::get('/EventDetails/{id}',[EventController::class,'EventDetails']);
-Route::get('/category',[CategoryController::class,'index']);
+Route::get('/category',[CategoryController::class,'category']);

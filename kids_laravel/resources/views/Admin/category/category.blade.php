@@ -15,15 +15,18 @@
 <!-- Category List Table -->
 @include('sweetalert::alert')
 <div class="card">
-  {{-- <a href="{{ url('/category/create') }}"><button class=" btn btn-primary" tabindex="0" type="button"><span><i
+  <a href="{{ url('/category/create') }}"><button class=" btn btn-primary" tabindex="0" type="button"><span><i
     class="mdi mdi-plus me-0 me-sm-1"></i><span class="d-none d-sm-inline-block">Add
-    category</span></span></button></a> --}}
+    category</span></span></button></a>
 <div class="card-datatable table-responsive">
   <table class="datatables-category-list table">
     <thead class="table-light">
       <tr>
-        <th class="text-nowrap" >Categories</th>
-        <th class="text-nowrap ">store </th>
+        <th class="text-nowrap col-lg-4" >Name</th>
+        <th class="text-nowrap col-lg-3"> Short Description</th>
+        <th class="text-nowrap col-lg-3 "> Long Description</th>
+        <th class="text-nowrap col-lg-2 "> Age</th>
+
       </tr>
       
  
@@ -31,12 +34,14 @@
     <tbody class="table-border-bottom-0">
       @foreach ($category as $item)
             <tr>
-        <td><img src="{{$item->image}}" alt=""class="w-px-40 h-auto">
-          <span>{{$item->name}} </span>
+        <td><img src="{{$item->image}}" alt="" style="width: 140px; height: 140px;">
+          
+          <span> &nbsp {{$item->name}} </span>
        </td>
-          <td>
-            {{$item->store->name}}
-          </td>
+       <td> {{$item->short_description}}</td>
+       <td>{{ Illuminate\Support\Str::limit($item->long_description, 90) }}</td>
+       <td> {{$item->age}}</td>
+
          
      <td> <div class="dropdown">
       <button type="button" class="btn p-0 dropdown-toggle hide-arrow"

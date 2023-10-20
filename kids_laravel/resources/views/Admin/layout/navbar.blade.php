@@ -156,11 +156,11 @@
         }
 
         input:checked+.slider {
-            background-color: #ffc713;
+            background-color: #fe4b7b;
         }
 
         input:focus+.slider {
-            box-shadow: 0 0 1px #ffc713;
+            box-shadow: 0 0 1px #fe4b7b;
         }
 
         input:checked+.slider:before {
@@ -201,10 +201,15 @@
             <!-- Menu -->
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-                <img src="{{ asset('Admin/images/areeka.png') }}" alt="">
+               
+                <br>
+                <img src="https://html.droitlab.com/kidzo/img/logo.png" alt="" style="width: 190px ; margin-left:20px">
+                
+                <br>
+                <br>
 
                 <div class="menu-inner-shadow"></div>
-
+                <br>
                 <ul class="menu-inner py-1">
                     <!-- Dashboard -->
                     <li class="menu-item {{ request()->is('index') ? 'active' : '' }}">
@@ -215,7 +220,7 @@
                     </li>
 
                     <!-- User interface -->
-                    <li class="menu-item">
+                    {{-- <li class="menu-item">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons mdi mdi-basket"></i>
                             <div>Products</div>
@@ -232,95 +237,54 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
-                    <li class="menu-item">
-                        <a href="javascript:void(0)" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons mdi mdi-cart"></i>
-                            <div>orders</div>
-                        </a>
-                        <ul class="menu-sub ">
-                            <li class="menu-item {{ request()->is('order') ? 'active' : '' }}">
-                                <a href="{{ asset('order') }}" class="menu-link">
-                                    <div>order list</div>
-                                </a>
-                            </li>
-                        </ul>
-                    <li class="menu-item">
-                        <a href="javascript:void(0)" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons mdi mdi-account-outline"></i>
-                            <div>Customer</div>
-                        </a>
-                        <ul class="menu-sub ">
-                            <li class="menu-item {{ request()->is('customer') ? 'active' : '' }}">
-                                <a href="{{ asset('customer') }}" class="menu-link">
-                                    <div>All Customer</div>
-                                </a>
-                            </li>
-                            {{-- <li class="menu-item {{ request()->routeIs('customerdetail') ? 'active' : '' }} ">
-                                <a href="{{route('customerdetail')}}" class="menu-link">
-                                    <div>Customer detail</div>
-                                </a>
-                            </li> --}}
-                            <li class="menu-item {{ request()->is('addcustomer') ? 'active' : '' }} ">
-                                <a href="{{ url('/customer/create') }}" class="menu-link">
-                                    <div>Add Customer </div>
-                                </a>
-                            </li>
+                    </li> --}}
+                   
+                        
+                   
+                      
+                      
 
-                        </ul>
-                        <li class="menu-item">
-                            <a href="javascript:void(0)" class="menu-link menu-toggle">
-                                <i class="menu-icon tf-icons  mdi mdi-shape"></i>
-                                <div>Category</div>
-                            </a>
-                            <ul class="menu-sub ">
-                                <li class="menu-item {{ request()->is('category') ? 'active' : '' }}">
-                                    <a href="{{ asset('/category') }}" class="menu-link">
-                                        <div>Category list</div>
-                                    </a>
-                                </li>
-                                <li class="menu-item  {{ request()->is('addcategory') ? 'active' : '' }}">
-                                    <a href="{{ url('/category/create') }}" class="menu-link">
-                                        <div>Add Category</div>
-                                    </a>
-                                </li>
-                            </ul>
-                    <li class="menu-item">
-                        <a href="javascript:void(0)" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons  mdi mdi-store"></i>
-                            <div>stores</div>
-                        </a>
-                        <ul class="menu-sub ">
-                            <li class="menu-item {{ request()->is('store') ? 'active' : '' }}">
-                                <a href="{{ asset('/store') }}" class="menu-link">
-                                    <div>stores list</div>
-                                </a>
-                            </li>
-                            <li class="menu-item  {{ request()->is('addstore') ? 'active' : '' }}">
-                                <a href="{{ url('/store/create') }}" class="menu-link">
-                                    <div>Add Store</div>
-                                </a>
-                            </li>
-                        </ul>
 
-                    <li class="menu-item {{ request()->is('review') ? 'active' : '' }}">
-                        <a href="{{ asset('/review') }}" class="menu-link">
-                            <i class="menu-icon tf-icons mdi mdi-star"></i>
-                            <div>Reviews</div>
-                        </a>
-                    </li>
-                    <li class="menu-item ">
-                        <a href="{{asset('/adminuser')}}" class="menu-link">
-                            <i class="menu-icon tf-icons mdi mdi-human-male"></i>
-                            <div>Admin</div>
-                        </a>
-                    </li>
-                    <li class="menu-item ">
-                        <a href="{{asset('provider')}}" class="menu-link">
-                            <i class="menu-icon tf-icons mdi mdi-content-paste"></i>
-                            <div>Provider</div>
-                        </a>
-                    </li>
+                            <li class="menu-item">
+                                <a href="javascript:void(0)" class="menu-link menu-toggle">
+                                    <i class="menu-icon tf-icons  mdi mdi-shape"></i>
+                                    <div>Category</div>
+                                </a>
+                                <ul class="menu-sub ">
+                                    <li class="menu-item {{ request()->is('category') ? 'active' : '' }}">
+                                        <a href="{{ asset('/category') }}" class="menu-link">
+                                            <div>Category list</div>
+                                        </a>
+                                    </li>
+                                    <li class="menu-item  {{ request()->is('addcategory') ? 'active' : '' }}">
+                                        <a href="{{ asset('/category/create') }}" class="menu-link">
+                                            <div>Add Category</div>
+                                        </a>
+                                    </li>
+                                </ul> </li>
+
+
+
+                            <li class="menu-item">
+                                <a href="javascript:void(0)" class="menu-link menu-toggle">
+                                    <i class="menu-icon tf-icons  mdi mdi-shape"></i>
+                                    <div>Events</div>
+                                </a>
+                                <ul class="menu-sub ">
+                                    <li class="menu-item {{ request()->is('category') ? 'active' : '' }}">
+                                        <a href="" class="menu-link">
+                                            <div>Events list</div>
+                                        </a>
+                                    </li>
+                                    <li class="menu-item  {{ request()->is('addcategory') ? 'active' : '' }}">
+                                        <a href="" class="menu-link">
+                                            <div>Add Event</div>
+                                        </a>
+                                    </li>
+                                </ul> </li>
+        
+
+               
             </aside>
             <!-- / Menu -->
 
@@ -337,7 +301,7 @@
 
                 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
                     id="layout-navbar">
-                    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+                    <div class=" navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
                         <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
                             <i class="mdi mdi-menu mdi-sm"></i>
                         </a>
@@ -346,16 +310,15 @@
                     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
                         <!-- Search -->
                         <div class="navbar-nav align-items-center">
-                            <div class="nav-item d-flex align-items-center">
+                            <div class="nav-item d-flex align-items-center" style="margin-top: 38px">
                                 <i class="mdi mdi-search fs-4 lh-0"></i>
                                 <input type="text" class="form-control border-0 shadow-none"
                                     placeholder="Search..." aria-label="Search..." />
                             </div>
                         </div>
                         <!-- /Search -->
-
-                        <ul class="navbar-nav flex-row align-items-center ms-auto">
-                            <!-- Place this tag where you want the button to render. -->
+{{-- 
+                         <ul class="navbar-nav flex-row align-items-center ms-auto">
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                                     data-bs-toggle="dropdown">
@@ -389,6 +352,7 @@
                                 </ul>
                             </li>
                             <!--/ User -->
-                        </ul>
+                        </ul>  --}}
+                        
                     </div>
                 </nav>

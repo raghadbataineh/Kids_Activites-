@@ -22,10 +22,15 @@ class EventController extends Controller
         $events = Event::where('category_id',$id)->with(['category','organizer'])->get();
         return response()->json($events);
     }
+
     public function EventDetails($id){
         $events = Event::find($id);
-        return response()->json($events);
+        $organizer = Event::where('id',$id)->with('organizer')->get();
+        // $organizer = Event::where('id', $id)->with('organizer', 'category')->get();
+        return response()->json(['events' => $events, 'organizer' => $organizer]);
+
     }
+   
 
     /**
      * Show the form for creating a new resource.

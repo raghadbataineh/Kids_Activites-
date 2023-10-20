@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class CategoryController extends Controller
 {
@@ -12,10 +14,18 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function category()
     {
         $category = Category::all();
         return response()->json($category);
+    }
+
+
+    public function index()
+    {
+        $category = Category::all();
+        // Alert::success('Success', 'Category retrieved successfully');
+        return view ('Admin.category.category')->with('category', $category);
     }
 
     /**
@@ -25,7 +35,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.category.Addcategory');
     }
 
     /**
@@ -34,10 +44,45 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    // public function uploadImage(Request $request, $fieldName, $uploadPath)
+    // {
+    //     if ($request->hasFile($fieldName)) {
+    //         $image = $request->file($fieldName);
+    //         $imageName = time() . '.' . $image->getClientOriginalExtension();
+    //         $image->move(public_path($uploadPath), $imageName);
+    //         return $uploadPath . '/' . $imageName;
+    //     }
+
+    //     return null; // Return null if no image was uploaded
+    // }
+
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'image' => ['required', 'image', 'max:4192'],
+            'name' => ['required', 'max:200'],
+            'short_description' => ['required', 'max:500'],
+            'long_description' => ['required', 'max:1000'],
+            'age' => ['required', 'max:200'],
+        ]);
+
+        $category = new Category();
+
+        if ($request->hasFile('image')) {
+            $filename = $request->getSchemeAndHttpHost() . '/assets/img/' . time() . '.' . $request->image->extension();
+            $request->image->move(public_path('/assets/img/'), $filename);
+            $category->image = $filename;
+        }
+        $category->name = $request->name;
+        $category->short_description = htmlspecialchars($request->short_description);
+        $category->long_description = htmlspecialchars($request->long_description);
+        $category->age = $request->age;
+
+        $category->save();
+
+        return redirect('category')->with('flash_message', 'Category Created Successfully!');
     }
+
 
     /**
      * Display the specified resource.
@@ -56,9 +101,10 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view ('Admin.category.edit')->with('category', $category);
     }
 
     /**
@@ -68,10 +114,28 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
-    {
-        //
+    public function update(Request $request, $id)
+{
+    $category = Category::find($id);
+
+    $category->name = $request->name;
+    $category->short_description = $request->short_description;
+    $category->long_description = $request->long_description;
+    $category->age = $request->age;
+
+
+    if ($request->hasFile('image')) {
+        $filename = $request->getSchemeAndHttpHost() . '/assets/img/' . time() . '.' . $request->image->extension();
+        $request->image->move(public_path('/assets/img/'), $filename);
+        $category->image = $filename;
     }
+
+    $category->save();
+
+    return redirect('category')->with('flash_message', 'Category Updated!');
+}
+
+    
 
     /**
      * Remove the specified resource from storage.
@@ -79,8 +143,9 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+        Category::destroy($id);
+        return redirect ('category')->with('flash_message', 'Category deleted!'); 
     }
 }
