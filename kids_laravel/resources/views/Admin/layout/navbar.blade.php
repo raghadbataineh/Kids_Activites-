@@ -273,7 +273,7 @@
                         </a>
                         <ul class="menu-sub ">
                             <li class="menu-item {{ request()->is('user') ? 'active' : '' }}">
-                                <a href="{{ route('orgnizer.index') }}" class="menu-link">
+                                <a href="{{ asset('/users') }}" class="menu-link">
                                     <div>User list</div>
                                 </a>
                             </li>

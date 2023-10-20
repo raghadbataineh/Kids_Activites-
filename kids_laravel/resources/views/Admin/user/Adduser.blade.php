@@ -16,81 +16,43 @@
                 
                 </div>
                 <div class="card-body ">
-                    <form action="{{ route('orgnizer.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <label class="form-label" for="name">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Name*" name="name" />
-                            @error('name')
+                            <label class="form-label" for="name">First name</label>
+                            <input type="text" class="form-control" id="first_name" placeholder="first_name*" name="first_name" />
+                            @error('first_name')
                                 <span style="color: red">{{ $message }}</span>
                             @enderror
                         </div>
                     
                         <div class="mb-3">
-                            <label class="form-label" for="image">Image</label>
-                            <input type="file" class="form-control" id="image" name="image" />
-                            @error('image')
+                            <label class="form-label" for="image">Last name</label>
+                            <input type="text" class="form-control" id="last_name" name="last_name" />
+                            @error('last_name')
                                 <span style="color: red">{{ $message }}</span>
                             @enderror
                         </div>
+                
                     
                         <div class="mb-3">
-                            <label class="form-label" for="role">Role</label>
-                            <input type="text" class="form-control" id="role" placeholder="Role*" name="role" />
-                            @error('role')
-                                <span style="color: red">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    
-                        <div class="mb-3">
-                            <label class="form-label" for="experience_year">Experience Year</label>
-                            <input type="number" class="form-control" id="experience_year" placeholder="Experience Year*" name="experience_year" />
-                            @error('experience_year')
-                                <span style="color: red">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    
-                        <div class="mb-3">
-                            <label class="form-label" for="phone">Phone</label>
-                            <input type="text" class="form-control" id="phone" placeholder="Phone*" name="phone" />
-                            @error('phone')
-                                <span style="color: red">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    
-                        <div class="mb-3">
-                            <label class="form-label" for="email">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Email*" name="email" />
+                            <label class="form-label" for="experience_year">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="email" name="email" />
                             @error('email')
                                 <span style="color: red">{{ $message }}</span>
                             @enderror
                         </div>
-                    
                         <div class="mb-3">
-                            <label class="form-label" for="facebook">Facebook</label>
-                            <input type="text" class="form-control" id="facebook" placeholder="Facebook" name="facebook" />
-                            @error('facebook')
+                            <label class="form-label" for="experience_year">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="password" name="password" />
+                            @error('password')
                                 <span style="color: red">{{ $message }}</span>
                             @enderror
                         </div>
                     
-                        <div class="mb-3">
-                            <label class="form-label" for="instagram">Instagram</label>
-                            <input type="text" class="form-control" id="instagram" placeholder="Instagram" name="instagram" />
-                            @error('instagram')
-                                <span style="color: red">{{ $message }}</span>
-                            @enderror
-                        </div>
+                        
                     
-                        <div class="mb-3">
-                            <label class="form-label" for="experience_description">Experience Description</label>
-                            <textarea class="form-control" id="experience_description" placeholder="Experience Description*" name="experience_description"></textarea>
-                            @error('experience_description')
-                                <span style="color: red">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    
-                        <button type="submit" class="btn btn-primary">Add Organizer</button>
+                        <button type="submit" class="btn btn-primary">Add user</button>
                     </form>
                     
                 </div>

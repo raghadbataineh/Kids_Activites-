@@ -17,7 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        
+        $users=User::all();
+        return view('Admin.user.user',compact("users"));
     }
 
     public function userCreate(Request $request){
@@ -92,7 +93,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.user.Adduser');
     }
 
     /**
@@ -103,7 +104,17 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $input = new User;
+
+        $input->first_name = $request->first_name;
+        $input->last_name = $request->last_name;
+        $input->email = $request->email;
+        $input->password =Hash::make($request->password);
+        $input->save();
+        return redirect()->route('users.index');
+
+        
     }
 
     /**
@@ -148,6 +159,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+        return redirect()->route('users.index');
     }
 }
