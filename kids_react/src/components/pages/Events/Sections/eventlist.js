@@ -149,10 +149,8 @@ const EventList = () => {
 
 export default EventList;
 
-
-
-
-{/* <section className="event_list section_padding section_bg_1">
+{
+  /* <section className="event_list section_padding section_bg_1">
 <div className="container custom_container">
     <div className="row justify-content-center">
         <div className="col-lg-7">
@@ -205,4 +203,5 @@ export default EventList;
 <div className="event_list_animation_4">
     <div data-parallax='{"x": 30, "y": -50, "rotateZ":0}'><img src="../../../../img/icon/icon_8.png" alt="#" className="img-fluid" /></div>
 </div>
-</section> */}
+</section> */
+}

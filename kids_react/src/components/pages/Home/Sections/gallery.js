@@ -11,9 +11,7 @@ const Gallery = () => {
                     <h2 className="title wow fadeInDown" data-wow-delay=".3s">
                         <div className="title_overlay_effect is_show">Our Gallery</div>
                     </h2>
-                    <p className="description wow fadeInDown" data-wow-delay=".3s">Kidzo mission is to provide
-                        affordable, high-quality
-                        early education and childcare services for working families to ensure every child.</p>
+                    <p className="description wow fadeInDown" data-wow-delay=".3s">We invite you to take a virtual tour of the incredible adventures, creativity, and excitement that children experience through our event activities.</p>
                 </div>
             </div>
         </div>

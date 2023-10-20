@@ -18,30 +18,24 @@ const Footer = () => {
                   <br></br>
               </a>
               <p>
-                Lorem ipsum dolor sit consectetur sicing elit, sed do eitempor
-                idunt ut labor omagn aliqua sed do.
+              KidZone your go-to destination for organizing and discovering exciting and educational events for kids of all ages.
               </p>
             </div>
           </div>
           <div className="col-lg-2 col-sm-6 wow fadeInDown" data-wow-delay=".5s">
             <div className="single_footer_widget footer_nav">
-              <h4>Class</h4>
+              <h4>Events</h4>
               <ul>
                 <li>
-                  <a href="#">Master Mind</a>
+                  <a href="#"> Preschoolers </a>
                 </li>
                 <li>
-                  <a href="#">Junior Lambs</a>
+                  <a href="#">Schoolers</a>
                 </li>
                 <li>
-                  <a href="#">Happy Kiddo</a>
+                  <a href="#">Junior Explorers</a>
                 </li>
-                <li>
-                  <a href="#">Master Mind</a>
-                </li>
-                <li>
-                  <a href="#">Junior Lambs</a>
-                </li>
+              
               </ul>
             </div>
           </div>
@@ -50,27 +44,25 @@ const Footer = () => {
               <h4>Useful Links</h4>
               <ul>
                 <li>
-                  <a href="index.html">Home</a>
+                  <a href="/">Home</a>
                 </li>
                 <li>
-                  <a href="#">About Us</a>
+                  <a href="teacher">Organizers</a>
                 </li>
                 <li>
-                  <a href="#">Our Classes</a>
+                  <a href="about">About Us</a>
                 </li>
                 <li>
-                  <a href="#">Blog</a>
+                  <a href="contact">Contact Us</a>
                 </li>
+                
               </ul>
             </div>
           </div>
           <div className="col-lg-3 col-sm-6 wow fadeInDown" data-wow-delay=".9s">
             <div className="single_footer_widget instagram_feed">
               <h4>Newsletter</h4>
-              <p>
-                Lorem ipsum dolor sit consectetur sicing elit, sed do eitempor
-                idunt ut labor elit, sed do omagn aliqua
-              </p>
+              
               <form action="#">
                 <div className="input-group">
                   <input

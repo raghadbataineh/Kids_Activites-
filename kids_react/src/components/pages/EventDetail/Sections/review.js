@@ -229,7 +229,7 @@ const Review = () => {
                         <div className="review_form blog_page_single_item">
                             <h3>Leave a Reply</h3>
                             <form action="#">
-                                <div className="row"></div>
+                                
                                 <ReactQuill
                                     theme="snow"
                                     modules={modules}

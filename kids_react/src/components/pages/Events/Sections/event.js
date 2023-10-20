@@ -9,7 +9,7 @@ const EventSection = ({category} ) => {
     <div className="row justify-content-between" key={category.id}>
       <div className="col-lg-6">
         <div className="img_section">
-          <img src={category.image} alt="#" className="about_img_6 img-fluid" />
+          <img src={category.image} alt="#" className="about_img_6 img-fluid" style={{ width: '450px', height: '400px' }}/>
        
         </div>
       </div>
@@ -21,7 +21,7 @@ const EventSection = ({category} ) => {
           <h2 className="wow fadeInRight kid_title" data-wow-delay=".4s">
             <span className="title_overlay_effect">{category.name}</span>
           </h2>
-          <p className="wow fadeInRight" data-wow-delay=".5s">
+          <p className="wow fadeInRight" data-wow-delay=".5s" style={{  color: '#626472', fontSize: '18px' }}>
             {category.long_description}
           </p>
 

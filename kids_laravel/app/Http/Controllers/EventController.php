@@ -112,9 +112,9 @@ class EventController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,jfif|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,jfif',
             'long' => 'required',
-            'image2' => 'image|mimes:jpeg,png,jpg,gif,jfif|max:2048',
+            'image2' => 'image|mimes:jpeg,png,jpg,gif,jfif',
             'location' => 'required',
             'end' => 'required',
             'start' => 'required',

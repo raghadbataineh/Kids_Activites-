@@ -9,10 +9,10 @@ const CtaSection = () => {
             <div className="cta_section_wrapper">
               <img src="img/cta_img.png" alt="#" className="img-fluid" />
               <h2>Enrollment Is Now Going On</h2>
-              <p>
-                The amazing way to olor sit amet, consectetur adipisicing elit, sed do eiusmod incididunt ut labore inventore Theamaolor sit amet, consectetur. The amazing way to olor
+              <p style={{  color: '#626472', fontSize: '18px' }}>
+              We're here to assist you, whether you have questions about our event activities, need assistance with bookings, or wish to share your thoughts.
               </p>
-              <a className="pc-button elementor-button button-link cu_btn" href="contact.html">
+              <a className="pc-button elementor-button button-link cu_btn" href="contact">
                 <div className="button-content-wrapper">
                   <span className="elementor-button-text">Contact Us</span>
                   <svg className="pc-dashes inner-dashed-border animated-dashes">

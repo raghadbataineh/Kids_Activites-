@@ -9,10 +9,10 @@ import Event from './components/pages/Events/Events';
 import About from './components/pages/About/about';
 import Teacher from './components/pages/Teacher/Teacher'
 import { BrowserRouter, Router, Route, Routes } from 'react-router-dom';
-
 import Teacher_Details from './components/pages/TeacherDetails/TeacherDetails';
 import Register from './components/pages/login_register/register';
 import Login from './components/pages/login_register/login';
+import Contact from './components/pages/contact/contact';
 
 
 function App() {
@@ -29,6 +29,7 @@ function App() {
         <Route path="/About" element={<About />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/contact" element={<Contact />} />
 
       </Routes>
       <Footer />
