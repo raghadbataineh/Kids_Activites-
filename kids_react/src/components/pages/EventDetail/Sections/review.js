@@ -6,9 +6,11 @@ import parse from 'html-react-parser';
 import Swal from 'sweetalert2';
 import Quill from 'quill';
 import { useNavigate } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 const Review = () => {
 
     const navigate = useNavigate();
+    const { id } = useParams();
     const modules = {
         toolbar: [
             [{ header: [1, 2, 3, 4, 5, 6, false] }],
@@ -43,28 +45,54 @@ const Review = () => {
 
     const [code, setCode] = useState("");
     const [review, setReview] = useState([]);
+    const [editingCommentId, setEditingCommentId] = useState(null);
+    const [deleteCommentId, setDeleteCommentId] = useState(null);
 
     const handleProcedureContentChange = (content) => {
         setCode(content);
     };
+    const handleEditComment = (commentId, commentText) => {
+        setEditingCommentId(commentId);
+        setCode(commentText);
+    };
+    const handleDeleteComment = (commentId) => {
+        setDeleteCommentId(commentId);
 
+        const formData = new FormData();
+        formData.append('id', deleteCommentId);
+        axios({
+            method: 'post',
+            url: "http://127.0.0.1:8000/api/deleteReview",
+            data: formData,
+        })
+            .then((res) => {
+
+                axios.get(`http://127.0.0.1:8000/api/showReview/${id}`).then((response) => {
+                    setReview(response.data);
+                });
+            })
+            .catch((error) => {
+                console.error('Error while saving data:', error);
+            });
+        setCode('');
+    };
     const handleSave = (e) => {
         e.preventDefault();
         const user = sessionStorage.getItem('user_id');
-
-
-        if (user !== null && code !== "") {
+        if (user !== null && code !== "" && editingCommentId == null) {
+            console.log('hhh');
             const formData = new FormData();
             formData.append('comment', code);
-            formData.append('user_id', user)
-
+            formData.append('user_id', user);
+            formData.append('category_id', id);
             axios({
                 method: 'post',
                 url: "http://127.0.0.1:8000/api/storeReview",
                 data: formData,
             })
                 .then((res) => {
-                    axios.get(`http://127.0.0.1:8000/api/showReview`).then((response) => {
+                
+                    axios.get(`http://127.0.0.1:8000/api/showReview/${id}`).then((response) => {
                         setReview(response.data);
                     });
                 })
@@ -74,6 +102,7 @@ const Review = () => {
             setCode('')
         }
         else if (user == null) {
+
             Swal.fire({
                 title: 'You Must Login First',
                 icon: 'warning',
@@ -88,6 +117,31 @@ const Review = () => {
                     }
                 });
         }
+        else if (user !== null && code !== "" && editingCommentId != null) {
+            console.log('edit comment id');
+            const formData = new FormData();
+            formData.append('comment', code);
+            formData.append('id', editingCommentId);
+            axios({
+                method: 'post',
+                url: "http://127.0.0.1:8000/api/storeReview",
+                data: formData,
+            })
+                .then((res) => {
+                    
+                    axios.get(`http://127.0.0.1:8000/api/showReview/${id}`).then((response) => {
+                        setReview(response.data);
+                    });
+                })
+                .catch((error) => {
+                    console.error('Error while saving data:', error);
+                });
+            setCode('');
+           setEditingCommentId(null);
+        }
+
+
+
         else {
             Swal.fire('You Must Write Something!')
         }
@@ -99,8 +153,8 @@ const Review = () => {
             class CustomImage extends CustomImageBlot {
                 static create(value) {
                     const node = super.create(value);
-                    node.setAttribute('width', '200'); 
-                    node.setAttribute('height', '150'); 
+                    node.setAttribute('width', '200');
+                    node.setAttribute('height', '150');
                     return node;
                 }
             }
@@ -110,11 +164,12 @@ const Review = () => {
 
         // Initialize the custom image module
         CustomImageModule();
-        axios.get(`http://127.0.0.1:8000/api/showReview`).then((response) => {
+        console.log(id);
+        axios.get(`http://127.0.0.1:8000/api/showReview/${id}`).then((response) => {
             setReview(response.data);
             console.log(response.data);
         });
-    }, []);
+    }, [id]);
     return (
         <section className="blog_page section_padding">
             <div className="container">
@@ -140,11 +195,18 @@ const Review = () => {
                                         <div className="admin_tittle">
                                             <h5>{rev.user.first_name} {rev.user.last_name} <span>{new Date(rev.updated_at).toLocaleString([], { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })} </span></h5>
                                         </div>
-                                        <>{parse(rev.comment)} </>
-                                        <a href="#" className="reply_btn">
-                                            <i className="arrow_back"></i>Reply
-                                        </a>
-                                        <div className="media">
+                                        <>{parse(rev.comment)}
+                                            {/* <span style={{border:'solid 1px gray'}}>edit</span> */}
+                                        </>
+                                        <div className='row'>
+
+                                            <a className="reply_btn" style={{ paddingRight: '10px',cursor: 'pointer' }} onClick={() => handleEditComment(rev.id, rev.comment)}>
+                                                <i className="ti ti-pencil"></i>Edit
+                                            </a>
+                                            <a className="reply_btn"  style={{ cursor: 'pointer' }} onClick={() => handleDeleteComment(rev.id)}>
+                                                <i className="ti ti-trash"></i>Delete
+                                            </a> </div>
+                                        {/* <div className="media">
                                             <img src="img//author_1.jpg" className="admin_img" alt="#" />
                                             <div className="media-body">
                                                 <div className="admin_tittle">
@@ -159,9 +221,10 @@ const Review = () => {
                                                     <i className="arrow_back"></i>Reply
                                                 </a>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>))}
+                                        </div> */}
+                                    </div><hr></hr>
+                                    <br></br> </div>
+                            ))}
                         </div>
                         <div className="review_form blog_page_single_item">
                             <h3>Leave a Reply</h3>
