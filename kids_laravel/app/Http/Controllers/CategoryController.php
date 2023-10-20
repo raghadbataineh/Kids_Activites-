@@ -24,7 +24,6 @@ class CategoryController extends Controller
     public function index()
     {
         $category = Category::all();
-    //    Alert::success('Success', 'Category retrieved successfully');
         return view ('Admin.category.category')->with('category', $category);
     }
 

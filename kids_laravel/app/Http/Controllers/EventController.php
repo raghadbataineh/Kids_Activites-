@@ -111,6 +111,7 @@ class EventController extends Controller
             'start' => 'required',
             'date' => 'required',
             'short' => 'required',
+            'price' => 'required|numeric',
         ]);
     
         $event = Event::find($id);
