@@ -32,9 +32,10 @@ Route::post('login', [UserController::class, 'userCheck']);
 Route::get('orgnizers', [OrganizerController::class , 'shoew_orgnizer']);
 Route::get('orgnizers/{id}', [OrganizerController::class , 'show_details']);
 Route::get('/events/{id}',[EventController::class,'Events']);
-
+// Route::get('/events',[EventController::class,'Events']);
 Route::get('/EventDetails/{id}',[EventController::class,'EventDetails']);
 Route::get('/category',[CategoryController::class,'index']);
 Route::post('/storeReview',[ReviewController::class,'storeReview']);
-Route::get('/showReview',[ReviewController::class,'showReview']);
+Route::get('/showReview/{id}',[ReviewController::class,'showReview']);
 Route::get('/category',[CategoryController::class,'category']);
+Route::post('/deleteReview',[ReviewController::class,'deleteReview']);

@@ -21,18 +21,25 @@ class ReviewController extends Controller
 
     public function storeReview(Request $request)
     {
+        $edit = $request->id;
+        if ($edit == null)
+            $review = Review::create([
+                'comment' => $request->comment,
+                'user_id' => $request->user_id,
+                'category_id' => $request->category_id,
+            ]);
 
-        $review = Review::create([
-            'comment' => $request->comment,
-            'user_id' => $request->user_id,
-            'category_id' => 1
-        ]);
+        if ($edit != null) {
+            $review = Review::where('id', $request->id)->update([
+                'comment' => $request->comment,
+            ]);
+        }
         return response()->json($review);
     }
-    public function showReview()
+    public function showReview($id)
     {
 
-        $review = Review::with('user')->get();
+        $review = Review::where('category_id',$id)->with('user')->get();
         return response()->json($review);
     }
     /**
@@ -101,5 +108,11 @@ class ReviewController extends Controller
         Review::destroy($id);
         Alert::success('success', ' Deleted Successfully');
         return redirect('review')->with('flash_message', 'Review deleted!');
+    }
+    public function deleteReview(Request $request)
+    {
+        $id = $request->id;
+        Review::destroy($id);
+        return response()->json($id, 201);
     }
 }
