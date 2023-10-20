@@ -111,6 +111,7 @@ class UserController extends Controller
         $input->last_name = $request->last_name;
         $input->email = $request->email;
         $input->password =Hash::make($request->password);
+        $input->role = 'user';
         $input->save();
         return redirect()->route('users.index');
 
