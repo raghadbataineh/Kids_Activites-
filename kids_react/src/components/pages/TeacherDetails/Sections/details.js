@@ -36,7 +36,7 @@ const TeacherDetailsInfo = () => {
                          alt="#" className="img-fluid" /> */}
               
               <img
-                src={`/images/${teacher.image}`}
+                src={teacher.image}
                 alt="#j"
                 className="img-fluid "
               />
