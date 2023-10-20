@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
-
+use App\Http\Controllers\OrganizerController;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,20 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/index', function () {
+Route::get('/', function () {
     return view('Admin.index');
 })->name('index');
 
 Route::resource("/category", CategoryController::class);
+
+
+// Route::get('/dashboard', function () {
+//     return view('Admin.index');
+// });
+
+
+// Route::resource('Admin/orgnizer', OrganizerController::class );
+Route::resource('orgnizer', OrganizerController::class);
+
+Route::resource("/event", EventController::class);
+Route::get('/eventsdetail/{id}', [EventController::class, 'show'])->name('orderdetails');

@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 
-
-
-
 <html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed layout-compact " dir="ltr"
     data-theme="theme-default" data-assets-path="assets/" data-template="vertical-menu-template">
-
 
 <head>
     <meta charset="utf-8" />
@@ -42,7 +38,7 @@
     <!-- End Google Tag Manager -->
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="images/web.png" />
+    <link rel="icon" type="image/x-icon" href="https://html.droitlab.com/kidzo/img/logo.png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -56,21 +52,33 @@
 
     <!-- Menu waves for no-customizer fix -->
     <link rel="stylesheet" href="{{ asset('Admin/assets/vendor/libs/node-waves/node-waves.css') }}" />
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        '../../../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-5DDHKGP');</script>
-      <!-- End Google Tag Manager -->
-      
-      <!-- Favicon -->
-      <link rel="icon" type="image/x-icon" href="../../images/web.png" />
-    
-      <!-- Fonts -->
-      <link rel="preconnect" href="https://fonts.googleapis.com/">
-      <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;ampdisplay=swap" rel="stylesheet">
-    
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                '../../../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5DDHKGP');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../images/web.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;ampdisplay=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="{{ asset('Admin/assets/vendor/css/rtl/core.css') }}"
         class="template-customizer-core-css" />
     <link rel="stylesheet" href="{{ asset('Admin/assets/vendor/css/rtl/theme-default.css') }}"
@@ -156,11 +164,11 @@
         }
 
         input:checked+.slider {
-            background-color: #fe4b7b;
+            background-color: #ffc713;
         }
 
         input:focus+.slider {
-            box-shadow: 0 0 1px #fe4b7b;
+            box-shadow: 0 0 1px #ffc713;
         }
 
         input:checked+.slider:before {
@@ -188,7 +196,6 @@
 
 <body>
 
-
     <!-- ?PROD Only: Google Tag Manager (noscript) (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DDHKGP" height="0" width="0"
             style="display: none; visibility: hidden"></iframe></noscript>
@@ -201,15 +208,12 @@
             <!-- Menu -->
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-               
-                <br>
-                <img src="https://html.droitlab.com/kidzo/img/logo.png" alt="" style="width: 190px ; margin-left:20px">
-                
-                <br>
-                <br>
+
+                <img src="{{ asset('https://html.droitlab.com/kidzo/img/logo.png') }}" alt=""
+                    style="width: 180px">
 
                 <div class="menu-inner-shadow"></div>
-                <br>
+
                 <ul class="menu-inner py-1">
                     <!-- Dashboard -->
                     <li class="menu-item {{ request()->is('index') ? 'active' : '' }}">
@@ -218,90 +222,89 @@
                             <div>Dashboard</div>
                         </a>
                     </li>
-
-                    <!-- User interface -->
-                    {{-- <li class="menu-item">
+                    <li class="menu-item menu-parent">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons mdi mdi-basket"></i>
-                            <div>Products</div>
+                            <i class="menu-icon tf-icons  mdi mdi-shape"></i>
+                            <div>Category</div>
                         </a>
                         <ul class="menu-sub ">
-                            <li class="menu-item {{ request()->is('product') ? 'active' : '' }}">
-                                <a href="{{ asset('/product') }}" class="menu-link">
-                                    <div>Product list</div>
+                            <li class="menu-item {{ request()->is('category') ? 'active' : '' }}">
+                                <a href="{{ asset('/category') }}" class="menu-link">
+                                    <div>Category list</div>
                                 </a>
                             </li>
-                            <li class="menu-item {{ request()->is('addproduct') ? 'active' : '' }} ">
-                                <a href="{{ url('/product/create') }}" class="menu-link">
-                                    <div>Add product</div>
+                            <li class="menu-item  {{ request()->is('addcategory') ? 'active' : '' }}">
+                                <a href="" class="menu-link">
+                                    <div>Add Category</div>
                                 </a>
                             </li>
                         </ul>
-                    </li> --}}
-                   
-                        
-                   
-                      
-                      
+                    </li>
 
 
-                            <li class="menu-item">
-                                <a href="javascript:void(0)" class="menu-link menu-toggle">
-                                    <i class="menu-icon tf-icons  mdi mdi-shape"></i>
-                                    <div>Category</div>
+
+                    <li class="menu-item menu-parent">
+                        <a href="javascript:void(0)" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons mdi mdi-calendar-heart"></i>
+                            <div>Events</div>
+                        </a>
+                        <ul class="menu-sub" id="events-submenu">
+                            <li class="menu-item {{ Route::is('event.index') ? 'active' : '' }}">
+                                <a href="{{ route('event.index') }}" class="menu-link">
+                                    <div>Events list</div>
                                 </a>
-                                <ul class="menu-sub ">
-                                    <li class="menu-item {{ request()->is('category') ? 'active' : '' }}">
-                                        <a href="{{ asset('/category') }}" class="menu-link">
-                                            <div>Category list</div>
-                                        </a>
-                                    </li>
-                                    <li class="menu-item  {{ request()->is('addcategory') ? 'active' : '' }}">
-                                        <a href="{{ asset('/category/create') }}" class="menu-link">
-                                            <div>Add Category</div>
-                                        </a>
-                                    </li>
-                                </ul> </li>
-
-
-
-                            <li class="menu-item">
-                                <a href="javascript:void(0)" class="menu-link menu-toggle">
-                                    <i class="menu-icon tf-icons  mdi mdi-shape"></i>
-                                    <div>Events</div>
+                            </li>
+                            <li class="menu-item {{ Route::is('event.create') ? 'active' : '' }}">
+                                <a href="{{ route('event.create') }}" class="menu-link">
+                                    <div>Add Event</div>
                                 </a>
-                                <ul class="menu-sub ">
-                                    <li class="menu-item {{ request()->is('category') ? 'active' : '' }}">
-                                        <a href="" class="menu-link">
-                                            <div>Events list</div>
-                                        </a>
-                                    </li>
-                                    <li class="menu-item  {{ request()->is('addcategory') ? 'active' : '' }}">
-                                        <a href="" class="menu-link">
-                                            <div>Add Event</div>
-                                        </a>
-                                    </li>
-                                </ul> </li>
-        
+                            </li>
+                        </ul>
+                    </li>
 
-               
+
+                    {{-- Mohammad ghzawi --}}
+                    <li class="menu-item menu-parent">
+                        <a href="javascript:void(0)" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons mdi mdi-cart"></i>
+                            <div>Users</div>
+                        </a>
+                        <ul class="menu-sub ">
+                            <li class="menu-item {{ request()->is('orgnizer') ? 'active' : '' }}">
+                                <a href="{{ route('orgnizer.index') }}" class="menu-link">
+                                    <div>User list</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {{-- End Mohammad ghzawi --}}
+
+                    {{-- Start Raghad bataineh --}}
+                    <li class="menu-item menu-parent">
+                        <a href="javascript:void(0)" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons mdi mdi-cart"></i>
+                            <div>Orgnizers</div>
+                        </a>
+                        <ul class="menu-sub ">
+                            <li class="menu-item {{ request()->is('orgnizer') ? 'active' : '' }}">
+                                <a href="{{ route('orgnizer.index') }}" class="menu-link">
+                                    <div>Orgnizer list</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {{-- End Raghad bataineh --}}
+
             </aside>
             <!-- / Menu -->
-
-
-
             <!-- Layout container -->
             <div class="layout-page">
-
-
-
-
 
                 <!-- Navbar -->
 
                 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
                     id="layout-navbar">
-                    <div class=" navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+                    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
                         <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
                             <i class="mdi mdi-menu mdi-sm"></i>
                         </a>
@@ -310,49 +313,28 @@
                     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
                         <!-- Search -->
                         <div class="navbar-nav align-items-center">
-                            <div class="nav-item d-flex align-items-center" style="margin-top: 38px">
+                            <div class="nav-item d-flex align-items-center">
                                 <i class="mdi mdi-search fs-4 lh-0"></i>
                                 <input type="text" class="form-control border-0 shadow-none"
                                     placeholder="Search..." aria-label="Search..." />
                             </div>
                         </div>
-                        <!-- /Search -->
-{{-- 
-                         <ul class="navbar-nav flex-row align-items-center ms-auto">
-                            <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
-                                    data-bs-toggle="dropdown">
-                                    <div class="avatar avatar-online">
-                                        <img src="images/FZ2_8041.JPG" alt class="w-px-40 h-auto rounded-circle" />
-                                    </div>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end">
-                                    <li>
-
-                                    </li>
-                                    <li>
-                                        <div class="dropdown-divider"></div>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('profile') }}">
-                                            <i class="mdi mdi-account-outline me-2"></i>
-                                            <span class="align-middle">My Profile</span>
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <div class="dropdown-divider"></div>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="auth-login-basic.html">
-                                            <i class="mdi mdi-exit-to-app me-2"></i>
-                                            <span class="align-middle">Log Out</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--/ User -->
-                        </ul>  --}}
-                        
                     </div>
                 </nav>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                {{-- <script>
+                    $(document).ready(function() {
+                        $('.menu-toggle').click(function() {
+                        
+                            $('#events-submenu').slideToggle();
+                        });
+                    });
+                </script> --}}
+                <script>
+                    $(document).ready(function() {
+                        $('.menu-parent').click(function() {
+                            const submenu = $(this).find('.menu-sub');
+                            submenu.slideToggle();
+                        });
+                    });
+                </script>
