@@ -15,63 +15,63 @@
 <!-- Category List Table -->
 @include('sweetalert::alert')
 <div class="card">
-  <a href="{{ url('/category/create') }}"><button class=" btn btn-primary" tabindex="0" type="button"><span><i
+  <div style="text-align: center;">
+    <h3 style="margin-top: 30px; ">Categories</h3>
+    <br>
+</div>  
+
+  <a href="{{ url('/category/create') }}" style="margin-left: 20px"><button class=" btn btn-primary" tabindex="0" type="button"><span><i
     class="mdi mdi-plus me-0 me-sm-1"></i><span class="d-none d-sm-inline-block">Add
     category</span></span></button></a>
-<div class="card-datatable table-responsive">
-  <table class="datatables-category-list table">
-    <thead class="table-light">
-      <tr>
-        <th class="text-nowrap col-lg-4" >Name</th>
-        <th class="text-nowrap col-lg-3"> Short Description</th>
-        <th class="text-nowrap col-lg-3 "> Long Description</th>
-        <th class="text-nowrap col-lg-2 "> Age</th>
-
-      </tr>
-      
- 
-    </thead>
-    <tbody class="table-border-bottom-0">
-      @foreach ($category as $item)
+    <br>
+<div class=" table-responsive">
+  <div style="text-align: center;">
+    <table class="table">
+        <thead class="table-light">
             <tr>
-        <td><img src="{{$item->image}}" alt="" style="width: 140px; height: 140px;">
-          
-          <span> &nbsp {{$item->name}} </span>
-       </td>
-       <td> {{$item->short_description}}</td>
-       <td>{{ Illuminate\Support\Str::limit($item->long_description, 90) }}</td>
-       <td> {{$item->age}}</td>
+                <th class="text-nowrap col-lg-4">Name</th>
+                <th class="text-nowrap col-lg-3">Short Description</th>
+                <th class="text-nowrap col-lg-3">Long Description</th>
+                <th class="text-nowrap col-lg-2">Age</th>
+            </tr>
+        </thead>
+        <tbody class="table-border-bottom-0">
+            @foreach ($category as $item)
+            <tr>
+                <td><img src="{{$item->image}}" alt="" style="width: 120px; height: 120px;">
+                    <span> &nbsp {{$item->name}} </span>
+                </td>
+                <td> {{$item->short_description}}</td>
+                <td>{{ Illuminate\Support\Str::limit($item->long_description, 90) }}</td>
+                <td> {{$item->age}}</td>
+                <td>
+                    <div class="dropdown">
+                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                            data-bs-toggle="dropdown">
+                            <i class="mdi mdi-dots-vertical"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item"
+                                href="{{ url('/category/' . $item->id . '/edit') }}"><i
+                                    class="mdi mdi-pen me-1"></i>
+                                Edit</a>
+                            <form method="POST" onclick="confirmation(event)"
+                                action="{{ url('/category/' . $item->id) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="dropdown-item"><i
+                                        class="mdi mdi-trash-can me-1"></i>
+                                    Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 
-         
-     <td> <div class="dropdown">
-      <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-      data-bs-toggle="dropdown">
-      <i class="mdi mdi-dots-vertical"></i>
-      </button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item"
-            href="{{ url('/category/' . $item->id . '/edit') }}"><i
-                class="mdi mdi-pen me-1"></i>
-            Edit</a>
-        <form method="POST" onclick="confirmation(event)"
-            action="{{ url('/category/' . $item->id) }}">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="dropdown-item"><i
-                    class="mdi mdi-trash-can me-1"></i>
-                Delete</button>
-        </form>
-
-    </div>
-      </div>
-      </td>
-      </tr>  
-      @endforeach
-  
-          
-
-    </tbody>
-  </table>
 </div>
 </div>
 <!-- Offcanvas to add new customer -->

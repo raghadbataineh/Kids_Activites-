@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Review;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class ReviewController extends Controller
 {
@@ -12,10 +15,15 @@ class ReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
+   
+     public function index()
+{
+    $reviews = Review::with('user', 'category')->get();
+    return view('Admin.reviews.index', ['review' => $reviews]);
+}
+    
+    
+
     public function storeReview(Request $request)
     {
         
@@ -93,8 +101,10 @@ class ReviewController extends Controller
      * @param  \App\Models\Review  $review
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Review $review)
+    public function destroy($id)
     {
-        //
+        Review::destroy($id);
+        Alert::success('success', ' Deleted Successfully');
+        return redirect ('review')->with('flash_message', 'Review deleted!'); 
     }
 }

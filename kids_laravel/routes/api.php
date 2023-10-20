@@ -4,6 +4,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\ReviewController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrganizerController;
 use App\Http\Controllers\CategoryController;
 
@@ -22,6 +23,10 @@ use App\Http\Controllers\CategoryController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('/sign', [UserController::class, 'userCreate']);
+Route::post('login', [UserController::class, 'userCheck']);
+
+
 
 // Route::resource('orgnizers', OrganizerController::class);
 Route::get('orgnizers', [OrganizerController::class , 'shoew_orgnizer']);

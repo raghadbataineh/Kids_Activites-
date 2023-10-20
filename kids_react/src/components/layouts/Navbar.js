@@ -118,12 +118,22 @@ const Navbar = () => {
                       </a>
                     </li>
                   </ul>
-                  <a href="contact.html" className="cu_btn btn_1">
-                    Log in
-                  </a>
-                  <a href="contact.html" className="cu_btn btn_1">
-                    Register
-                  </a>
+                  <Nav.Link
+                        as={NavLink}
+                        exact
+                        to="login"
+                        activeClassName="active cu_btn btn_1" 
+                      >
+                        Login{" "}
+                      </Nav.Link>
+                      <Nav.Link
+                        as={NavLink}
+                        exact
+                        to="register"
+                        activeClassName="active cu_btn btn_1"
+                      >
+                        Register{" "}
+                      </Nav.Link>
                 </div>
               </nav>
             </div>

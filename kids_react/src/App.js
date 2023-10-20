@@ -11,6 +11,9 @@ import Teacher from './components/pages/Teacher/Teacher'
 import { BrowserRouter , Router, Route , Routes } from 'react-router-dom';
 
 import Teacher_Details from './components/pages/TeacherDetails/TeacherDetails';
+import Register from './components/pages/login_register/register';
+import Login from './components/pages/login_register/login';
+
 
 function App() {
   return (
@@ -25,6 +28,8 @@ function App() {
            <Route path="/teacher_details/:id" element={<Teacher_Details />} />
           <Route  path="/About" element={<About />} />
 
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
           
       </Routes>
       <Footer/>

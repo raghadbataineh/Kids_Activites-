@@ -164,11 +164,11 @@
         }
 
         input:checked+.slider {
-            background-color: #ffc713;
+            background-color: #fe4b7b;
         }
 
         input:focus+.slider {
-            box-shadow: 0 0 1px #ffc713;
+            box-shadow: 0 0 1px #fe4b7b;
         }
 
         input:checked+.slider:before {
@@ -210,12 +210,14 @@
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
 
                 <img src="{{ asset('https://html.droitlab.com/kidzo/img/logo.png') }}" alt=""
-                    style="width: 180px">
+                    style="width: 180px; margin-top:25px; margin-left:30px">
 
                 <div class="menu-inner-shadow"></div>
 
                 <ul class="menu-inner py-1">
                     <!-- Dashboard -->
+                    <br>
+                    <br>
                     <li class="menu-item {{ request()->is('index') ? 'active' : '' }}">
                         <a href="{{ route('index') }}" class="menu-link">
                             <i class="menu-icon tf-icons mdi mdi-home-circle"></i>
@@ -266,11 +268,11 @@
                     {{-- Mohammad ghzawi --}}
                     <li class="menu-item menu-parent">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons mdi mdi-cart"></i>
+                            <i class="menu-icon tf-icons mdi mdi-account"></i>
                             <div>Users</div>
                         </a>
                         <ul class="menu-sub ">
-                            <li class="menu-item {{ request()->is('orgnizer') ? 'active' : '' }}">
+                            <li class="menu-item {{ request()->is('user') ? 'active' : '' }}">
                                 <a href="{{ route('orgnizer.index') }}" class="menu-link">
                                     <div>User list</div>
                                 </a>
@@ -282,11 +284,11 @@
                     {{-- Start Raghad bataineh --}}
                     <li class="menu-item menu-parent">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons mdi mdi-cart"></i>
+                            <i class="menu-icon tf-icons mdi mdi-account-group"></i>
                             <div>Orgnizers</div>
                         </a>
                         <ul class="menu-sub ">
-                            <li class="menu-item {{ request()->is('orgnizer') ? 'active' : '' }}">
+                            <li class="menu-item {{ request()->is('orgnizer.index') ? 'active' : '' }}">
                                 <a href="{{ route('orgnizer.index') }}" class="menu-link">
                                     <div>Orgnizer list</div>
                                 </a>
@@ -294,6 +296,19 @@
                         </ul>
                     </li>
                     {{-- End Raghad bataineh --}}
+                    <li class="menu-item menu-parent">
+                        <a href="javascript:void(0)" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons mdi mdi-comment"></i>
+                            <div>Reviews</div>
+                        </a>
+                        <ul class="menu-sub ">
+                            <li class="menu-item {{ request()->is('review.index') ? 'active' : '' }}">
+                                <a href="{{ route('review.index') }}" class="menu-link">
+                                    <div>Reviews list</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
             </aside>
             <!-- / Menu -->
@@ -312,7 +327,7 @@
 
                     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
                         <!-- Search -->
-                        <div class="navbar-nav align-items-center">
+                        <div class="navbar-nav align-items-center" style="margin-top:38px">
                             <div class="nav-item d-flex align-items-center">
                                 <i class="mdi mdi-search fs-4 lh-0"></i>
                                 <input type="text" class="form-control border-0 shadow-none"
