@@ -11,61 +11,125 @@ const EventList = ({ events }) => {
     }
 
     return (
-        <section className="event_list section_padding section_bg_1">
-            <div className="container custom_container">
-                <div className="row justify-content-center">
-                    <div className="col-lg-7">
-                        <div className="section_tittle_style_02">
-                            <h2 className="title wow fadeInDown" data-wow-delay=".3s">
-                                <span className="title_overlay_effect"> Events</span>
-                            </h2>
-                            {events.map((event) => (
-                                <p className="description wow fadeInDown" data-wow-delay=".3s">
-                                    {event.category.long_description}
-                                </p>))}
-                        </div>
+        <section className="program_list program_list_page section_padding" id="program_list">
+              <div className="row justify-content-center">
+        <div className="col-lg-7">
+            <div className="section_tittle_style_02">
+                <h2 className="title wow fadeInDown" data-wow-delay=".3s">
+                    <span className="title_overlay_effect"> Events</span>
+                </h2>
+               
+            </div>
+            
+        </div>
+    </div>
+        <div className="container custom_container">
+            <div className="row">
+                <div className="col-md-12">
+                    <div className="filters">
+                        <ul>
+                            <li className="is-checked" data-filter="*">All</li>
+                            <li data-filter=".Kindergarten">Category 1</li>
+                            <li data-filter=".Group">Category 2</li>
+                            <li data-filter=".Primary">Category 3</li>
+                        </ul>
                     </div>
                 </div>
-                <div className="row justify-content-center">
-                    {events.map((event) => {
-                        if (event.status === 'active') {
-                            return (
-                                <div className="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay=".2s" key={event.id}>
-                                    <div className="single_event_list">
-                                        <div className="event_list_img">
-                                            <img src={event.image} alt={event.name} className="img-fluid" />
-                                        </div>
-                                        <div className="event_list_content">
-                                            <h5>{event.date}</h5>
-                                            <h3>
-                                                <Link to={`/single/${event.id}`}>{event.name}</Link>
-                                            </h3>
-                                            <p>{event.short_description}</p>
-                                            <ul>
-                                                <li><i className="fas fa-clock"></i>Time: <span>{formatTime(event.start_time)} - {formatTime(event.end_time)}</span></li>
-                                                <li><i className="fas fa-map-marker-alt"></i>Location: <span>{event.location}</span></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            );
-                        }
-                    })}
+                <div className="col-md-12">
+  <div
+    className="rows grid program_list_filter"
+    style={{ display: 'flex', flexWrap: 'wrap' }}
+  >
+    {events
+      .filter((event) => event.status === 'active')
+      .map((event, index) => (
+        <div
+          className="col-lg-4 col-md-6 grid-item Kindergarten Story"
+          key={event.id}
+          style={{ flex: '1', maxWidth: '33.33%'}} // Set a fixed height
+        >
+          <div className="single_program_list wow fadeInUp" data-wow-delay=".4s" style={{ height: '600px', display: 'flex', flexDirection: 'column', }}>
+            <img src={event.image} alt={event.name} className="img-fluid"  style={{ height: '300px', objectFit: 'cover' }} />
+            <div className="single_program_list_content ">
+             <center > <h4><Link to={`/single/${event.id}`}>{event.name}</Link></h4>
+              <p>{event.short_description}</p> </center>
+              <div className="program_list_details" style={{ marginTop: 'auto' }}>
+                <h5>Price <span>{event.price}</span></h5>
+                <h5>Date <span>{event.date}</span></h5>
+                <h5>Time <span>{formatTime(event.start_time)} - {formatTime(event.end_time)}</span></h5>
 
-
-                </div>
+              </div>
             </div>
-            <div className="event_list_animation_1">
-                <div data-parallax='{"x": 2, "y": 70, "rotateZ":0}'><img src="../../../../img/icon/icon_5.png" alt="#" /></div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+        </div>
             </div>
-            <div className="event_list_animation_3">
-                <div data-parallax='{"x": 30, "y": 60, "rotateZ":0}'><img src="../../../../img/icon/icon_7.png" alt="#" /></div>
-            </div>
-            <div className="event_list_animation_4">
-                <div data-parallax='{"x": 30, "y": -50, "rotateZ":0}'><img src="../../../../img/icon/icon_8.png" alt="#" className="img-fluid" /></div>
-            </div>
-        </section>
+        
+           
+    </section>
     );
 };
 
 export default EventList;
+
+
+
+
+{/* <section className="event_list section_padding section_bg_1">
+<div className="container custom_container">
+    <div className="row justify-content-center">
+        <div className="col-lg-7">
+            <div className="section_tittle_style_02">
+                <h2 className="title wow fadeInDown" data-wow-delay=".3s">
+                    <span className="title_overlay_effect"> Events</span>
+                </h2>
+                {events.map((event) => (
+                    <p className="description wow fadeInDown" data-wow-delay=".3s">
+                        {event.category.long_description}
+                    </p>))}
+            </div>
+        </div>
+    </div>
+    <div className="row justify-content-center">
+        {events.map((event) => {
+            if (event.status === 'active') {
+                return (
+                    <div className="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay=".2s" key={event.id}>
+                        <div className="single_event_list">
+                            <div className="event_list_img">
+                                <img src={event.image} alt={event.name} className="img-fluid" />
+                            </div>
+                            <div className="event_list_content">
+                                <h5>{event.date}</h5>
+                                <h3>
+                                    <Link to={`/single/${event.id}`}>{event.name}</Link>
+                                </h3>
+                                <p>{event.short_description}</p>
+                                <ul>
+                                    <li><i className="fas fa-clock"></i>Time: <span>{formatTime(event.start_time)} - {formatTime(event.end_time)}</span></li>
+                                    <li><i className="fas fa-map-marker-alt"></i>Location: <span>{event.location}</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
+        })}
+
+
+    </div>
+</div>
+<div className="event_list_animation_1">
+    <div data-parallax='{"x": 2, "y": 70, "rotateZ":0}'><img src="../../../../img/icon/icon_5.png" alt="#" /></div>
+</div>
+<div className="event_list_animation_3">
+    <div data-parallax='{"x": 30, "y": 60, "rotateZ":0}'><img src="../../../../img/icon/icon_7.png" alt="#" /></div>
+</div>
+<div className="event_list_animation_4">
+    <div data-parallax='{"x": 30, "y": -50, "rotateZ":0}'><img src="../../../../img/icon/icon_8.png" alt="#" className="img-fluid" /></div>
+</div>
+</section> */}

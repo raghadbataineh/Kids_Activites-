@@ -6,6 +6,7 @@ const Eventdetails = () => {
   const { id } = useParams(); // Assuming 'id' is the category ID
 
   const [data, setData] = useState([]);
+  const [organizer, setOrganizer] = useState([]);
 
   useEffect(() => {
     // Construct the URL with the 'id' (category ID)
@@ -13,6 +14,8 @@ const Eventdetails = () => {
       .get(`http://127.0.0.1:8000/api/EventDetails/${id}`)
       .then((response) => {
         setData(response.data);
+        setOrganizer(response.data.organizer);
+
       });
   }, [id]); // Include 'id' in the dependency array
 
@@ -54,7 +57,85 @@ const Eventdetails = () => {
             <div className="single_event_section_part">
               <div className="row justify-content-between">
                 <div
-                  className="col-lg-4 col-sm-6 wow fadeInUp"
+                  className="col-lg-3 col-sm-6 wow fadeInUp"
+                  data-wow-delay=".3s"
+                >
+                  <div className="single_event_part event_bg_01">
+                    <div className="single_event_icon">
+                      <img
+                        src="https://html.droitlab.com/kidzo/img/event/list_event_7.png"
+                        alt="#"
+                        className="img-fluid"
+                      />
+                    </div>
+                    <h4>event Location</h4>
+                    <p style={{ fontSize: '24px' }}>{data.location}</p>
+                    <br></br>
+                  </div>
+                </div>
+                <div
+                  className="col-lg-3 col-sm-6 wow fadeInUp"
+                  data-wow-delay=".5s"
+                >
+                  <div className="single_event_part event_bg_02">
+                    <div className="single_event_icon">
+                      <img
+                        src="https://html.droitlab.com/kidzo/img/event/list_event_8.png"
+                        alt="#"
+                        className="img-fluid"
+                      />
+                    </div>
+                    <h4>Event Date & Time  </h4>
+                    <p style={{ fontSize: '20px' }} >
+                      
+  {data.date} <br /> 
+  
+{data.start_time ? data.start_time.slice(0, 5) : ''}-
+
+  {data.end_time ? data.end_time.slice(0, 5) : ''}
+</p>
+
+                  </div>
+                </div>
+                <div
+                  className="col-lg-3 col-sm-6 wow fadeInUp"
+                  data-wow-delay=".5s"
+                >
+                  <div className="single_event_part event_bg_03">
+                    <div className="single_event_icon">
+                      <img
+                        src="https://html.droitlab.com/kidzo/img/program_img/program_img_06.png"
+                        alt="#"
+                        className="img-fluid"
+                      />
+                    </div>
+                    <h4>Event <br></br> price </h4>
+
+                    <p style={{ fontSize: '24px' }}>{data.price} JOD</p>
+                    <br></br>
+                  </div>
+                </div>
+                <div
+                  className="col-lg-3 col-sm-6 wow fadeInUp"
+                  data-wow-delay=".3s"
+                >
+                  <div className="single_event_part event_bg_01">
+                    <div className="single_event_icon">
+                      <img
+                        src="https://images-ext-1.discordapp.net/external/gVYIT3gOMVIBOLq2-WHIG_OUEAtRjjbibR5G6Z8rzsI/https/html.droitlab.com/kidzo/img/event/list_event_9.png?width=245&height=187"
+                        alt="#"
+                        className="img-fluid"
+                      />
+                    </div>
+                    <h4>event organizer</h4>
+                    <p style={{ fontSize: '24px' }}>{organizer.name}</p>
+                    <br></br>
+                  </div>
+                </div> </div>
+
+            </div>
+            {/* <div
+                  className="col-lg-3 col-sm-6 wow fadeInUp"
                   data-wow-delay=".3s"
                 >
                   <div className="single_event_part event_bg_01">
@@ -69,44 +150,7 @@ const Eventdetails = () => {
                     <p>{data.location}</p>
                     <br></br>
                   </div>
-                </div>
-                <div
-                  className="col-lg-4 col-sm-6 wow fadeInUp"
-                  data-wow-delay=".5s"
-                >
-                  <div className="single_event_part event_bg_02">
-                    <div className="single_event_icon">
-                      <img
-                        src="https://html.droitlab.com/kidzo/img/event/list_event_8.png"
-                        alt="#"
-                        className="img-fluid"
-                      />
-                    </div>
-                    <h4>event date &time</h4>
-                    <p>
-                      {data.date} <br /> {data.start_time} - {data.end_time}
-                    </p>
-                  </div>
-                </div>
-                <div
-                  className="col-lg-4 col-sm-6 wow fadeInUp"
-                  data-wow-delay=".5s"
-                >
-                  <div className="single_event_part event_bg_03">
-                    <div className="single_event_icon">
-                      <img
-                        src="https://html.droitlab.com/kidzo/img/program_img/program_img_06.png"
-                        alt="#"
-                        className="img-fluid"
-                      />
-                    </div>
-                    <h4>Event price</h4>
-                    <p>{data.price} JOD</p>
-                    <br></br>
-                  </div>
-                </div>
-              </div>
-            </div>
+                </div> */}
           </div>
         </div>
       </div>

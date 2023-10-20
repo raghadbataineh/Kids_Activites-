@@ -25,6 +25,7 @@
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
     "route": "^0.2.5",
+    "sweetalert2": "^11.7.32",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

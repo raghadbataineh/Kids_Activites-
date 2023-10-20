@@ -3,8 +3,8 @@ import React from 'react';
 const Gallery = () => {
   return (
  
-    <section className="our_gallery gallery_style_2">
-    <div className="container-fluid no-gutters">
+    <section>
+    <div className="container-fluid ">
         <div className="row justify-content-center">
             <div className="col-lg-5">
                 <div className="section_tittle_style_02">
@@ -17,57 +17,51 @@ const Gallery = () => {
                 </div>
             </div>
         </div>
-
-        {/* <div className="row wow fadeInDown" data-wow-delay=".5s">
-            <div className="col-lg-12 p-0">
-                <div className="gallery_slider  gallery_popup_img">
-                    <a href="../../../../img/gallery/one.png" className="grid-item bg_1">
-                        <div className="grid_item_content">
-                            <h3>Magic Prince Birthday Party</h3>
-                            <p>Kids, Daycare, Kindergarten</p>
-                        </div>
-                    </a>
-                    <a href="../../../../img/gallery/two.png" className="grid-item bg_2">
-                        <div className="grid_item_content">
-                            <h3>Magic Prince Birthday Party</h3>
-                            <p>Kids, Daycare, Kindergarten</p>
-                        </div>
-                    </a>
-                    <a href="../../../../img/gallery/three.png" className="grid-item bg_3">
-                        <div className="grid_item_content">
-                            <h3>Magic Prince Birthday Party</h3>
-                            <p>Kids, Daycare, Kindergarten</p>
-                        </div>
-                    </a>
-                    <a href="../../../../img/gallery/four.png" className="grid-item bg_4">
-                        <div className="grid_item_content">
-                            <h3>Magic Prince Birthday Party</h3>
-                            <p>Kids, Daycare, Kindergarten</p>
-                        </div>
-                    </a>
-                    <a href="../../../../img/gallery/one.png" className="grid-item bg_5">
-                        <div className="grid_item_content">
-                            <h3>Magic Prince Birthday Party</h3>
-                            <p>Kids, Daycare, Kindergarten</p>
-                        </div>
-                    </a>
-                    <a href="../../../../img/gallery/one.png" className="grid-item bg_6">
-                        <div className="grid_item_content">
-                            <h3>Magic Prince Birthday Party</h3>
-                            <p>Kids, Daycare, Kindergarten</p>
-                        </div>
-                    </a>
-                </div>
+    </div>
+    <div className="container">
+    <div className="row">
+        <div className="col-md-3">
+            <div class="image-container">
+                <img src="https://as2.ftcdn.net/v2/jpg/01/88/29/95/1000_F_188299599_05Uw52NKeM0NdZxo3nwd1zvdDfOUmvgd.jpg" alt="#"   style={{
+    width: '100%',
+    height: '300px',
+    objectFit: 'cover',
+  }}  />
             </div>
-        </div> */}
+        </div>
+        <div className="col-md-3">
+            <div class="image-container">
+                <img src="https://myfirst.tech/wp-content/uploads/2023/01/portrait-little-girl-doing-coloring-activity-with-rest-group-preschool-classroom-scaled-1-1024x683.jpg" alt="#"   style={{
+    width: '100%',
+    height: '300px',
+    objectFit: 'cover',
+  }}  />
+            </div>
+        </div>
+        <div className="col-md-3">
+            <div class="image-container">
+                <img src="https://www.morainevalley.edu/fitrec/wp-content/uploads/sites/6/2020/04/kids-cooking.jpg" alt="#"  style={{
+    width: '100%',
+    height: '300px',
+    objectFit: 'cover',
+  }} />
+            </div>
+        </div>
+     
+        <div className="col-md-3">
+            <div class="image-container">
+                <img src="https://experiencelife.lifetime.life/wp-content/uploads/2021/03/Kids-Sports.jpg" alt="#"   style={{
+    width: '100%',
+    height: '300px',
+    objectFit: 'cover',
+  }}  />
+            </div>
+        </div>
     </div>
-    <div className="gallery_animation_1">
-        <div data-parallax='{"x": 2, "y": 20, "rotateZ":0}'><img src="img/icon/banner_two_1.png" alt="#"/></div>
-    </div>
-    <div className="gallery_animation_2">
-        <div data-parallax='{"x": 10, "y": 50, "rotateZ":0}'><img src="img/icon/event_1.png" alt="#"/></div>
-    </div>
+</div>
+
 </section>
+
     );
 };
 
