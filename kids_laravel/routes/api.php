@@ -20,6 +20,9 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
+Route::resource('updateProfile', UserController::class);
+
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -37,5 +40,6 @@ Route::get('/EventDetails/{id}',[EventController::class,'EventDetails']);
 Route::get('/category',[CategoryController::class,'index']);
 Route::post('/storeReview',[ReviewController::class,'storeReview']);
 Route::get('/showReview/{id}',[ReviewController::class,'showReview']);
+Route::get('/seeReview/{id}',[ReviewController::class,'show']);
 Route::get('/category',[CategoryController::class,'category']);
 Route::post('/deleteReview',[ReviewController::class,'deleteReview']);
