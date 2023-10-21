@@ -1,6 +1,9 @@
 import React from 'react';
+import { Link, useParams } from 'react-router-dom';
 
 function CtaPart() {
+  const { id } = useParams();
+
   return (
     <section className="cta_part section_padding">
       <div className="container">
@@ -9,7 +12,7 @@ function CtaPart() {
             <div className="cta_part_iner">
               <h2>Enrollment Is Going On</h2>
               <p>Gain access to over 1000 Premium resources</p>
-              <a href="#" className="cu_btn white_bg font-weight-bold">Book Now</a>
+              <Link className="cu_btn white_bg font-weight-bold"  to={`/booking/${id}`}>Book Now</Link>
             </div>
           </div>
         </div>

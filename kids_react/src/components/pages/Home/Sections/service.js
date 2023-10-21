@@ -46,7 +46,7 @@ const Services = () => {
             </a>
           
           <center> <h4 style={{ marginTop: '15px' }}>
-              <a href="blog.html">{item.name}</a>
+              <Link to={`/events/${item.id}`}>{item.name}</Link>
             </h4>
             <h5 style={{  color: '#626472', fontSize: '18px' }} >Age <span>{item.age} yrs</span> </h5>
 

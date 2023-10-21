@@ -177,9 +177,17 @@ const Review = () => {
     return (
         <section className="blog_page section_padding">
             <div className="container">
-                <h2 className="title wow fadeInDown" data-wow-delay=".3s">
-                    <span className="title_overlay_effect">Parents Reviews</span>
-                </h2>
+            <div className="row justify-content-center">
+                <div className="col-lg-7">
+                    <div className="section_tittle_style_02">
+                        <h2 className="title wow fadeInDown" data-wow-delay=".3s">
+                            <span className="title_overlay_effect"> Parents Reviews</span>
+                        </h2>
+
+                    </div>
+
+                </div>
+            </div>
                 <div className="row">
                     <div className="single_review_part blog_page_single_item">
                         <div className="comment_part">

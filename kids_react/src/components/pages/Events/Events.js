@@ -31,7 +31,7 @@ const Event = () => {
       <Breadcrumb />
       <EventSection category={category} />
       <EventList  />
-      <EventTimeCountdown />
+      {/* <EventTimeCountdown /> */}
       <Review />
       {/* <EventPart events={events} /> */}
     </>

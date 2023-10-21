@@ -6,7 +6,9 @@ import { useNavigate } from 'react-router-dom';
 // import '../../css/animate.css';
 // import '../../css/style.css';
 // import '../../css/bootstrap.min.css';
-import image from '../../img/logo.png'
+
+import image from '../../img/logo.png';
+import profile from '../../images/profile.jpg'
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -138,6 +140,7 @@ const Navbar = () => {
                       <a href="login" className="cu_btn btn_1">
                         Log in
                       </a>
+                      {' '}
                       <a href="register" className="cu_btn btn_1">
                         Register
                       </a>
@@ -147,6 +150,10 @@ const Navbar = () => {
                       <a onClick={logout} href="" className="cu_btn btn_1">
                         Logout
                       </a>
+                      {' '}
+                      <Link to="/profile" className="cu_btn btn_1">
+                      <i class="ti ti-user" style={{fontSize:'15px'}}></i>
+                      </Link>
                     </div>
                   )}
 

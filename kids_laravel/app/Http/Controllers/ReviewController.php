@@ -69,9 +69,10 @@ class ReviewController extends Controller
      * @param  \App\Models\Review  $review
      * @return \Illuminate\Http\Response
      */
-    public function show(Review $review)
+    public function show($id)
     {
-        //
+        $reviews = Review::where('user_id', $id)->with('user')->get();
+        return response()->json($reviews);
     }
 
     /**

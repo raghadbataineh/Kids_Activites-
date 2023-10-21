@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { PayPalButtons } from "@paypal/react-paypal-js";
-import axios from "axios"; 
+import axios from "axios";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const handleSubmit = async (formData) => {
+
     try {
         const response = await axios.post('http://localhost:8000/api/bookings', formData);
         // const response = await axios.post('https://6521236ba4199548356cd771.mockapi.io/all_rooms', formData);
@@ -22,11 +25,22 @@ const handleSubmit = async (formData) => {
 
 const PaypalCheckoutButton = (props) => {
     const { formData } = props;
-
+const navigate = useNavigate();
     const [error, setError] = useState(null);
     const handleApprove = (orderId) => {
+        Swal.fire({
+            title: 'Thank you ♥<br></br>Your booking has been successfully completed',
+            showConfirmButton: true,
+            confirmButtonText: 'Go to Home',
+            confirmButtonColor: '#fe4b7b',
+            allowEscapeKey: false,
+            allowOutsideClick: false,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                navigate('/');
+            }
+        });
         handleSubmit(formData);
-        alert("Thank you ♥");
     };
 
 
