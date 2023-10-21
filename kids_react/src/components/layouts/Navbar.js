@@ -123,9 +123,14 @@ const Navbar = () => {
                     </li>
 
                     <li className="nav-item">
-                      <a className="nav-link" href="contact.html">
-                        Contact
-                      </a>
+                      <Nav.Link
+                        as={NavLink}
+                        exact
+                        to="contact"
+                        activeClassName="active"
+                      >
+                        Contact{" "}
+                      </Nav.Link>
                     </li>
                   </ul>
                   {!isLoggedIn ? (

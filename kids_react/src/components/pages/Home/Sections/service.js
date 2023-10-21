@@ -25,8 +25,8 @@ const Services = () => {
             <h2 className="title wow fadeInDown" data-wow-delay=".3s">
               <span class="title_overlay_effect is_show"> Our Services</span>
             </h2>
-            <p className="description wow fadeInDown" data-wow-delay=".3s">
-              Kidzo mission is to provide affordable, high-quality early education and childcare services for working families to ensure every child.
+            <p className="description wow fadeInDown" data-wow-delay=".3s" >
+            KidZone your go-to destination for organizing and discovering exciting and educational events for kids of all ages. 
             </p>
           </div>
         </div>
@@ -48,9 +48,10 @@ const Services = () => {
           <center> <h4 style={{ marginTop: '15px' }}>
               <a href="blog.html">{item.name}</a>
             </h4>
-            <h5>Age <span>{item.age} yrs</span> </h5>
+            <h5 style={{  color: '#626472', fontSize: '18px' }} >Age <span>{item.age} yrs</span> </h5>
 
-            <p style={{ marginBottom: '10px' }}> {item.short_description} </p> 
+            <p style={{ marginBottom: '10px', color: '#626472', fontSize: '18px' }}>{item.short_description}</p>
+
             <Link to={`/events/${item.id}`} className="read_more_btn">
                 
             Discover Events <img src="img/icon/arrow_left.svg" alt="#" />

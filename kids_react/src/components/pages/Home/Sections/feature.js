@@ -11,9 +11,9 @@ const FeaturesPart = () => {
             Discover Our <span className="title_overlay_effect is_show">Features</span>
           </h2>
           <p className="description wow fadeInDown" data-wow-delay=".3s">
-            Kidzo mission is to provide affordable, high-quality early education and childcare
+            KidZone mission is to provide affordable, high-quality 
             <br />
-            services for working families to ensure every child.
+            services for your kids.
           </p>
         </div>
         <div className="row justify-content-center">
