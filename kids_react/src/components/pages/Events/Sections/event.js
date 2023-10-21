@@ -1,14 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const EventSection = ({events} ) => {
+const EventSection = ({category} ) => {
     return (
         <section className="event_section section_padding">
             <div className="container custom_container">
-  {events.map((event) => (
-    <div className="row justify-content-between" key={event.id}>
+ 
+    <div className="row justify-content-between" key={category.id}>
       <div className="col-lg-6">
         <div className="img_section">
-          <img src={event.category.image} alt="#" className="about_img_6 img-fluid" />
+          <img src={category.image} alt="#" className="about_img_6 img-fluid" />
        
         </div>
       </div>
@@ -18,15 +19,17 @@ const EventSection = ({events} ) => {
             Category
           </h5>
           <h2 className="wow fadeInRight kid_title" data-wow-delay=".4s">
-            <span className="title_overlay_effect">{event.category.name}</span>
+            <span className="title_overlay_effect">{category.name}</span>
           </h2>
           <p className="wow fadeInRight" data-wow-delay=".5s">
-            {event.category.long_description}
+            {category.long_description}
           </p>
 
           <a className="pc-button elementor-button button-link cu_btn" href="about.html">
             <div className="button-content-wrapper">
-              <span className="elementor-button-text">Learn More</span>
+            <Link style={{color:'white'}} to="/About">
+  <span className="elementor-button-text">Learn More</span>
+</Link>
               <svg className="pc-dashes inner-dashed-border animated-dashes">
                 <rect x="5px" y="5px" rx="22px" ry="22px" width="0" height="0"></rect>
               </svg>
@@ -35,7 +38,7 @@ const EventSection = ({events} ) => {
         </div>
       </div>
     </div>
-  ))}
+  
 </div>
 
             <div className="about_page_animation_1">

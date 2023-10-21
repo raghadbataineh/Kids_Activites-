@@ -10,34 +10,29 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class ReviewController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-   
-     public function index()
-{
-    $reviews = Review::with('user', 'category')->get();
-    return view('Admin.reviews.index', ['review' => $reviews]);
-}
-    
-    
+
+    public function index()
+    {
+        $reviews = Review::with('user', 'category')->get();
+        return view('Admin.reviews.index', ['review' => $reviews]);
+    }
+
+
 
     public function storeReview(Request $request)
     {
-        
-        $review=Review::create([
+
+        $review = Review::create([
             'comment' => $request->comment,
-            'user_id'=>1,
-            'category_id'=>1
+            'user_id' => $request->user_id,
+            'category_id' => 1
         ]);
         return response()->json($review);
     }
     public function showReview()
     {
-        
-        $review=Review::with('user')->get();
+
+        $review = Review::with('user')->get();
         return response()->json($review);
     }
     /**
@@ -105,6 +100,6 @@ class ReviewController extends Controller
     {
         Review::destroy($id);
         Alert::success('success', ' Deleted Successfully');
-        return redirect ('review')->with('flash_message', 'Review deleted!'); 
+        return redirect('review')->with('flash_message', 'Review deleted!');
     }
 }

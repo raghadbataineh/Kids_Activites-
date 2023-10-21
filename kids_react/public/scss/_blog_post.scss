@@ -478,7 +478,7 @@
         img{
             margin-right: 30px; 
             border-radius: 50%;
-            max-width: 60px;
+            max-width: 200px;
             @media #{$xs_mobile}{
                 margin-right: 10px; 
             }
@@ -491,7 +491,7 @@
                 display:  block !important;
             }
             img{
-                max-width: 50px;
+                max-width:200px;
                 @media #{$xs_mobile}{
                     margin-bottom: 20px;
                 }

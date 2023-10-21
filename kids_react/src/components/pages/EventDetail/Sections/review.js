@@ -3,8 +3,12 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import axios from 'axios'; // Import Axios
 import parse from 'html-react-parser';
-
+import Swal from 'sweetalert2';
+import Quill from 'quill';
+import { useNavigate } from 'react-router-dom';
 const Review = () => {
+
+    const navigate = useNavigate();
     const modules = {
         toolbar: [
             [{ header: [1, 2, 3, 4, 5, 6, false] }],
@@ -46,25 +50,66 @@ const Review = () => {
 
     const handleSave = (e) => {
         e.preventDefault();
-        const formData = new FormData();
-        formData.append('comment', code);
+        const user = sessionStorage.getItem('user_id');
 
-        axios({
-            method: 'post',
-            url: "http://127.0.0.1:8000/api/storeReview",
-            data: formData,
-        })
-            .then((res) => {
-                axios.get(`http://127.0.0.1:8000/api/showReview`).then((response) => {
-                    setReview(response.data);
-                });
+
+        if (user !== null && code !== "") {
+            const formData = new FormData();
+            formData.append('comment', code);
+            formData.append('user_id', user)
+
+            axios({
+                method: 'post',
+                url: "http://127.0.0.1:8000/api/storeReview",
+                data: formData,
             })
-            .catch((error) => {
-                console.error('Error while saving data:', error);
-            });
+                .then((res) => {
+                    axios.get(`http://127.0.0.1:8000/api/showReview`).then((response) => {
+                        setReview(response.data);
+                    });
+                })
+                .catch((error) => {
+                    console.error('Error while saving data:', error);
+                });
             setCode('')
-    };
+        }
+        else if (user == null) {
+            Swal.fire({
+                title: 'You Must Login First',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Login'
+            })
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        navigate('/login')
+                    }
+                });
+        }
+        else {
+            Swal.fire('You Must Write Something!')
+        }
+    }
     useEffect(() => {
+        const CustomImageModule = () => {
+            const CustomImageBlot = Quill.import('formats/image');
+
+            class CustomImage extends CustomImageBlot {
+                static create(value) {
+                    const node = super.create(value);
+                    node.setAttribute('width', '200'); 
+                    node.setAttribute('height', '150'); 
+                    return node;
+                }
+            }
+
+            Quill.register('formats/image', CustomImage);
+        };
+
+        // Initialize the custom image module
+        CustomImageModule();
         axios.get(`http://127.0.0.1:8000/api/showReview`).then((response) => {
             setReview(response.data);
             console.log(response.data);
@@ -81,9 +126,17 @@ const Review = () => {
                         <div className="comment_part">
                             <h3>3 Comment</h3>
                             {review.map((rev) => (
-                                <div className="media">
-                                  <div className="admin_img" > <img src={rev.user.image} alt="#" /> </div> 
-                                    <div className="media-body">
+                                <div >
+                                    <img
+                                        src={rev.user.image}
+                                        className="admin_img"
+                                        style={{
+                                            marginRight: '30px',
+                                            borderRadius: '50%',
+                                            maxWidth: '60px',
+                                        }}
+                                    />
+                                    <div >
                                         <div className="admin_tittle">
                                             <h5>{rev.user.first_name} {rev.user.last_name} <span>{new Date(rev.updated_at).toLocaleString([], { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })} </span></h5>
                                         </div>

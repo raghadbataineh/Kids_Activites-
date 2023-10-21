@@ -21,11 +21,13 @@ class EventController extends Controller
     public function Events($id)
     {
         $events = Event::where('category_id', $id)->with(['category', 'organizer'])->get();
-        return response()->json($events);
+        $category=Category::find($id);
+        return response()->json(["events"=>$events,"category"=>$category]);
     }
     public function EventDetails($id)
     {
-        $events = Event::find($id);
+        $events = Event::with('organizer')->find($id);
+
         return response()->json($events);
     }
     public function create()
