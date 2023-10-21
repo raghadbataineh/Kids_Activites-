@@ -46,7 +46,7 @@ class EventsTableSeeder extends Seeder
                     'start_time' => '14:30',
                     'end_time' => '16:00',
                     'location' => 'Amman Public Library, Amman, Jordan',
-                    'image2' => 'http://127.0.0.1:8000/images/events/story2.jpeg',
+                    'image2' => 'http://127.0.0.1:8000/images/events/story2.jpg',
                     'price' => '8',
                     'category_id' => '1',
                     'organize_id' => '3',
