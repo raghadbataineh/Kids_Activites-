@@ -14,9 +14,16 @@ import Register from './components/pages/login_register/register';
 import Login from './components/pages/login_register/login';
 import Contact from './components/pages/contact/contact';
 import UserProfile from './components/pages/profile/profile'
+import Booking from './components/pages/booking/booking';
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
+
+  
 function App() {
   return (
+    <PayPalScriptProvider
+      options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID }}
+    >
     <BrowserRouter>
       <Navbar />
       <UserProfile/>
@@ -24,6 +31,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/events/:id" element={<Event />} />
         <Route path="/single/:id" element={<EventDetails />} />
+        <Route path="/booking/:id" element={<Booking />} />
         <Route path="/teacher" element={<Teacher />} />
         <Route path="/teacher_details/:id" element={<Teacher_Details />} />
         <Route path="/About" element={<About />} />
@@ -34,6 +42,7 @@ function App() {
       </Routes> */}
       <Footer />
     </BrowserRouter>
+    </PayPalScriptProvider>
   );
 }
 

@@ -7,21 +7,27 @@ import React, { useState, useEffect } from "react";
 const TeacherDetailsInfo = () => {
   // const [teamMembers, setTeamMembers] = useState([]);
   const { id } = useParams(); // Get the id parameter from the URL
-  const [teacher, setTeacher] = useState(null); //
+  const [teacher, setTeacher] = useState(); //
+  const [events, setEvents] = useState([]);
+
+  // const [event, setEvent] = useState();
 
   useEffect(() => {
  const team =   axios
-      .get(`http://localhost:8000/api/orgnizers/${id}`)
-      .then((response) => {
-        //   const teacherData = response.data.find((item) => item.id.toString() === id);
-        setTeacher(response.data);
+ axios
+ .get(`http://localhost:8000/api/orgnizers/${id}`)
+ .then((response) => {
+   setTeacher(response.data.orgnizer); // Assuming "orgnizer" is the key for organizer data
+   setEvents(response.data.events);
       })
       .catch((error) => {
         console.error("Error fetching teacher details:", error);
       });
   }, [id]); // Include id as a dependency to re-fetch data when the id changes
+ 
+ 
 
-  if (!teacher) {
+  if (!teacher ) {
     return <div>Loading...</div>;
   }
 
@@ -36,7 +42,7 @@ const TeacherDetailsInfo = () => {
                          alt="#" className="img-fluid" /> */}
               
               <img
-                src={teacher.image}
+                src={`/images/${teacher.image}`}
                 alt="#j"
                 className="img-fluid "
               />
@@ -173,7 +179,7 @@ const TeacherDetailsInfo = () => {
                             <div className="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
                                 <div className="single_achievement">
                                     <img src="./../../../img/icon/achievement_1.png" alt="" />
-                                    <img src="./../../public/img/icon/achivement_1.svg" alt="" />
+                                    <img src="/img/icon/achivement_1.svg" alt="" />
                                     <h5 className="font-weight-bolder">Social Action</h5>
                                     <br></br>
                                     <p> unlock young people’s vision of themselves as active citizens with the confidence, skills and pride in their
@@ -182,7 +188,7 @@ const TeacherDetailsInfo = () => {
                             </div>
                             <div className="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay=".4s">
                                 <div className="single_achievement">
-                                    <img src="./../../../img/icon/achievement_2.svg" alt="" />
+                                <img src="/img/icon/achivement_2.svg" alt="" />
                                     <h5 className="font-weight-bolder">Educational Achievement</h5>
                                     <br></br>
                                     <p>My  work is embedded in the curriculum, rooted in effective pedagogy 
@@ -191,7 +197,7 @@ const TeacherDetailsInfo = () => {
                             </div>
                             <div className="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay=".5s">
                                 <div className="single_achievement">
-                                    <img src="./../../../img/icon/achievement_3.svg" alt="" />
+                                <img src="/img/icon/achivement_3.svg" alt="" />
                                     <h5 className="font-weight-bolder">Wellbeing</h5>
                                     <br></br>
                                     <p>improves self-esteem and boosts positive feelings of belonging,

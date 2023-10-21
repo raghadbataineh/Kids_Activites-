@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link, } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 const Eventdetails = () => {
@@ -46,9 +47,11 @@ const Eventdetails = () => {
               </h2>
               <p style={{  color: '#626472', fontSize: '18px' }}>{data.long_description}</p>
               <br></br>
-              <a href="#" className="cu_btn btn_2">
+              
+              {/* <a href="#" className="cu_btn btn_2">
                 Book Now
-              </a>
+              </a> */}
+              <Link className="cu_btn btn_2" to={`/booking/${id}`}>Book Now</Link>
             </div>
           </div>
         </div>

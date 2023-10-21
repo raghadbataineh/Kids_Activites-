@@ -11,11 +11,13 @@ const Event = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
 }, []);
+
   const { id } = useParams(); 
   const [events, setEvent] = useState([]);
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
+    sessionStorage.setItem('current',window.location.pathname);
     // Construct the URL with the 'id' (category ID)
     axios.get(`http://127.0.0.1:8000/api/events/${id}`).then((response) => {
 

@@ -33,19 +33,7 @@ class UserController extends Controller
                     Rules\Password::min(8)->mixedCase()->numbers()->symbols(),
                 ],
             ],
-            // [
-            //     'first_name.required' => 'The first name field is required.',
-            //     'last_name.required' => 'The last name field is required.',
-            //     'email.required' => 'The email field is required.',
-            //     'email.email' => 'Invalid email address format.',
-            //     'email.max' => 'Email address must not exceed 255 characters.',
-            //     'email.unique' => 'This email address is already in use.',
-            //     'password.required' => 'The password field is required.',
-            //     'password.min' => 'Password must be at least 8 characters long.',
-            //     'password.mixed_case' => 'Password must include both upper and lower case letters.',
-            //     'password.numbers' => 'Password must include at least one number.',
-            //     'password.symbols' => 'Password must include at least one symbol.',
-            // ]
+    
         );
 
         if ($data->fails()) {

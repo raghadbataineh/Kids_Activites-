@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import axios from 'axios'; // Import Axios
@@ -42,20 +42,24 @@ const Review = () => {
         "size",
         "font",
     ];
-
+    const user=sessionStorage.getItem('user_id');
     const [code, setCode] = useState("");
     const [review, setReview] = useState([]);
     const [editingCommentId, setEditingCommentId] = useState(null);
     const [deleteCommentId, setDeleteCommentId] = useState(null);
-
+    const reactQuillRef = useRef(null);
     const handleProcedureContentChange = (content) => {
         setCode(content);
     };
-    const handleEditComment = (commentId, commentText) => {
+    const handleEditComment = (commentId, commentText,userId) => {
+        const user=sessionStorage.getItem('user_id');
+        console.log(userId);
+        if(user==userId){
         setEditingCommentId(commentId);
         setCode(commentText);
+        reactQuillRef.current.focus();}
     };
-    const handleDeleteComment = (commentId) => {
+    const handleDeleteComment = (commentId,userId) => {
         setDeleteCommentId(commentId);
 
         const formData = new FormData();
@@ -91,7 +95,7 @@ const Review = () => {
                 data: formData,
             })
                 .then((res) => {
-                
+
                     axios.get(`http://127.0.0.1:8000/api/showReview/${id}`).then((response) => {
                         setReview(response.data);
                     });
@@ -128,7 +132,7 @@ const Review = () => {
                 data: formData,
             })
                 .then((res) => {
-                    
+
                     axios.get(`http://127.0.0.1:8000/api/showReview/${id}`).then((response) => {
                         setReview(response.data);
                     });
@@ -137,7 +141,7 @@ const Review = () => {
                     console.error('Error while saving data:', error);
                 });
             setCode('');
-           setEditingCommentId(null);
+            setEditingCommentId(null);
         }
 
 
@@ -198,30 +202,15 @@ const Review = () => {
                                         <>{parse(rev.comment)}
                                             {/* <span style={{border:'solid 1px gray'}}>edit</span> */}
                                         </>
-                                        <div className='row'>
+                                        <div className='row' style={{ display: user != rev.user.id ? 'none':'' }}>
+                                            
 
-                                            <a className="reply_btn" style={{ paddingRight: '10px',cursor: 'pointer' }} onClick={() => handleEditComment(rev.id, rev.comment)}>
+                                            <a className="reply_btn" style={{ paddingRight: '10px', cursor: 'pointer' }} onClick={() => handleEditComment(rev.id, rev.comment,rev.user.id)}>
                                                 <i className="ti ti-pencil"></i>Edit
                                             </a>
-                                            <a className="reply_btn"  style={{ cursor: 'pointer' }} onClick={() => handleDeleteComment(rev.id)}>
+                                            <a className="reply_btn" style={{ cursor: 'pointer' }} onClick={() => handleDeleteComment(rev.id,rev.user.id)}>
                                                 <i className="ti ti-trash"></i>Delete
                                             </a> </div>
-                                        {/* <div className="media">
-                                            <img src="img//author_1.jpg" className="admin_img" alt="#" />
-                                            <div className="media-body">
-                                                <div className="admin_tittle">
-                                                    <h5>Gunther Beard <span>44 mins ago</span></h5>
-                                                </div>
-                                                <p>
-                                                    The bee's knees he nicked it gosh Queen's English don't
-                                                    get shirty with me cuppa ruddy horse play amongst
-                                                    knackered, what a plonker chap.!
-                                                </p>
-                                                <a href="#" className="reply_btn">
-                                                    <i className="arrow_back"></i>Reply
-                                                </a>
-                                            </div>
-                                        </div> */}
                                     </div><hr></hr>
                                     <br></br> </div>
                             ))}
@@ -229,9 +218,10 @@ const Review = () => {
                         <div className="review_form blog_page_single_item">
                             <h3>Leave a Reply</h3>
                             <form action="#">
-                                
+
                                 <ReactQuill
                                     theme="snow"
+                                    ref={reactQuillRef}
                                     modules={modules}
                                     formats={formats}
                                     value={code}

@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setUserEmail, setUserPassword, loginUser } from '../Redux/loginAction';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 function Login() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const user = useSelector((state) => state.loggedIn);
-  
+
   const navigate = useNavigate();
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -31,29 +31,37 @@ function Login() {
         password: password,
       })
       .then((res) => {
-      
+
         // Assuming the response contains a property 'userId'
         const userId = res.data;
-       
+
         // Dispatch action to update state indicating user is logged in
         dispatch(loginUser());
-       
-        if (userId!='Email not registered'&&userId!='False'&& user) {
-            // Save user ID in session storage
-            sessionStorage.setItem('user_id', userId);
-            navigate(-1)
-            
+
+        if (userId != 'Email not registered' && userId != 'False' && user) {
+          // Save user ID in session storage
+          sessionStorage.setItem('user_id', userId);
+          const previousPath = sessionStorage.getItem('current');
+          if (previousPath) {
+        
+            navigate(previousPath);
+
+          }
+          else {
+            navigate('/')
+          }
+
         }
-        else if(userId=='Email not registered'){
+        else if (userId == 'Email not registered') {
           alert('Email is not registerd');
         }
-        else if(userId=='False'){
+        else if (userId == 'False') {
           alert('Password is incorrect');
         }
-    })
-    
-        
-      
+      })
+
+
+
       .catch((error) => {
         console.error(error);
         // Handle error cases here
@@ -95,7 +103,7 @@ function Login() {
                         {/* <button type="submit" className="cu_btn btn_1" style={{width:'170px'}}>
                           Login
                         </button> */}
-                        <button   type="submit" className="cu_btn btn_1" >
+                        <button type="submit" className="cu_btn btn_1" >
                           Login
                         </button>
                       </div>
