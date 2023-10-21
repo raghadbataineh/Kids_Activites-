@@ -21,9 +21,16 @@ class EventController extends Controller
     public function Events($id)
     {
         $events = Event::where('category_id', $id)->with(['category', 'organizer'])->get();
-        $category=Category::find($id);
-        return response()->json(["events"=>$events,"category"=>$category]);
+        $category=Category::all();
+        $cat=Category::find($id);
+        return response()->json(["events"=>$events,"category"=>$category,'cat'=>$cat]);
     }
+    //    public function Events()
+    // {
+    //     $events = Event::with(['category', 'organizer'])->get();
+    //     $category=Category::all();
+    //     return response()->json(["events"=>$events,"category"=>$category]);
+    // }
     public function EventDetails($id)
     {
         $events = Event::with('organizer')->find($id);
@@ -105,9 +112,9 @@ class EventController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,jfif|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,jfif',
             'long' => 'required',
-            'image2' => 'image|mimes:jpeg,png,jpg,gif,jfif|max:2048',
+            'image2' => 'image|mimes:jpeg,png,jpg,gif,jfif',
             'location' => 'required',
             'end' => 'required',
             'start' => 'required',

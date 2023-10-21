@@ -97,16 +97,20 @@ class OrganizerController extends Controller
     }
     public function show_details( $id)
     {
+        
         $orgnizer = Organizer::find($id);
-        return response()->json($orgnizer);
+        $events = Event::where('organize_id', $id)->with(['category', 'organizer'])->get();
+        // $cat=Category::find($id);
+        return response()->json(["events"=>$events,"orgnizer"=>$orgnizer]);
+        // return response()->json($orgnizer);
         // $orgnizer = Organizer::with('event')->find($id);
         // $events = $orgnizer->event;
+        
 
         if (!$orgnizer) {
             return response()->json(['message' => 'Organizer not found'], 404);
         }
     
-        return response()->json(['organizer' => $orgnizer ], 200);
 
     }
 

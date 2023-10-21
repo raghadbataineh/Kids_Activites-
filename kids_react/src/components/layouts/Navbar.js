@@ -39,7 +39,7 @@ const Navbar = () => {
           <div className="row align-items-center">
             <div className="col-lg-12">
               <nav className="navbar navbar-expand-lg navbar-light">
-              <a className="navbar-brand" href="index.html">
+                <a className="navbar-brand" href="index.html">
                   <img
                     src={image}
                     srcSet="images/logo3.JPG"
@@ -73,28 +73,18 @@ const Navbar = () => {
                       </Nav.Link>
                     </li>
 
-                    <li className="nav-item dropdown">
-                      <a
-                        className="nav-link dropdown-toggle"
-                        href="#"
-                        role="button"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
+                    <li className="nav-item">
+                      <Nav.Link
+                        as={NavLink}
+                        exact
+
+                        activeClassName="active"
+                        to={`events/1`}
+
                       >
-                        Events
-                      </a>
-                      <div className="dropdown-menu">
-                        {data.map((item) => (
-                          <Link
-                            key={item.id}
-                            className="dropdown-item"
-                            Link to={`/events/${item.id}`}
-                          >
-                            {item.name}
-                          </Link>
-                        ))}
-                      </div>
+                        Events{" "}
+                      </Nav.Link>
+
                     </li>
                     {/* <li className="nav-item">
                       <a className="nav-link" href="to=">
@@ -123,9 +113,14 @@ const Navbar = () => {
                     </li>
 
                     <li className="nav-item">
-                      <a className="nav-link" href="contact.html">
-                        Contact
-                      </a>
+                      <Nav.Link
+                        as={NavLink}
+                        exact
+                        to="contact"
+                        activeClassName="active"
+                      >
+                        Contact{" "}
+                      </Nav.Link>
                     </li>
                   </ul>
                   {!isLoggedIn ? (

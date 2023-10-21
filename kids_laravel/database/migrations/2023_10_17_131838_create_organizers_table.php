@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('email');
             $table->text('facebook')->nullable();
             $table->text('instagram')->nullable();
-            $table->string('experience_description',1500);
+            $table->text('experience_description');
             $table->timestamps();
         });
     }

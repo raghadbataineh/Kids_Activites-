@@ -8,9 +8,9 @@ const Banner = () => {
           <div className="row align-items-center">
             <div className="col-xl-7 col-lg-8 col-md-7">
               <div className="banner_iner">
-                <h5>Baby Care & Kindergarten School</h5>
+                <br></br>
                 <h2>Imagination Will Begin Explore New Things</h2>
-                <a href="about.html" className="cu_btn btn_2">
+                <a href="about" className="cu_btn btn_2">
                   Learn More
                 </a>
               </div>

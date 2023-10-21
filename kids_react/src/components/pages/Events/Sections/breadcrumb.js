@@ -10,7 +10,7 @@ const Breadcrumb = () => {
                         <div className="breadcrumb_iner">
                             <h2>Our Events</h2>
                             <div className="breadcrumb_iner_link">
-                                <a href="index.html">Home</a>
+                                <a href="/">Home</a>
                                 <span>|</span>
                                 <p>Events</p>
                             </div>

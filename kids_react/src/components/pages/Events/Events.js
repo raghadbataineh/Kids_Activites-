@@ -8,7 +8,10 @@ import Review from '../EventDetail/Sections/review';
 import { useParams } from "react-router-dom";
 
 const Event = () => {
-  const { id } = useParams(); // Assuming 'id' is the category ID
+  useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
+  const { id } = useParams(); 
   const [events, setEvent] = useState([]);
   const [category, setCategory] = useState([]);
 
@@ -17,7 +20,7 @@ const Event = () => {
     axios.get(`http://127.0.0.1:8000/api/events/${id}`).then((response) => {
 
       setEvent(response.data.events);
-      setCategory(response.data.category);
+      setCategory(response.data.cat);
     });
   }, [id]); 
 
@@ -25,7 +28,7 @@ const Event = () => {
     <>
       <Breadcrumb />
       <EventSection category={category} />
-      <EventList events={events} />
+      <EventList  />
       <EventTimeCountdown />
       <Review />
       {/* <EventPart events={events} /> */}
