@@ -12,7 +12,7 @@ import { BrowserRouter, Router, Route, Routes } from 'react-router-dom';
 import Teacher_Details from './components/pages/TeacherDetails/TeacherDetails';
 import Register from './components/pages/login_register/register';
 import Login from './components/pages/login_register/login';
-import Contact from './components/pages/contact/contact';
+import Contact from './components/pages/Contact/contact';
 
 
 function App() {

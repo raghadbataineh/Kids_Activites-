@@ -179,7 +179,7 @@ const Review = () => {
                 <div className="row">
                     <div className="single_review_part blog_page_single_item">
                         <div className="comment_part">
-                            <h3>3 Comment</h3>
+                            {/* <h3>3 Comment</h3> */}
                             {review.map((rev) => (
                                 <div >
                                     <img

@@ -8,6 +8,9 @@ import Review from '../EventDetail/Sections/review';
 import { useParams } from "react-router-dom";
 
 const Event = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
   const { id } = useParams(); 
   const [events, setEvent] = useState([]);
   const [category, setCategory] = useState([]);
