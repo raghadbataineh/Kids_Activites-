@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BookingKids;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 
 class BookingKidsController extends Controller
@@ -14,7 +15,8 @@ class BookingKidsController extends Controller
      */
     public function index()
     {
-        //
+        $booking = Booking::all();
+        return view('Admin.booking.booking', compact('booking'));
     }
 
     /**
@@ -44,9 +46,13 @@ class BookingKidsController extends Controller
      * @param  \App\Models\BookingKids  $bookingKids
      * @return \Illuminate\Http\Response
      */
-    public function show(BookingKids $bookingKids)
+    // public function show(BookingKids $bookingKids)
+    public function show($booking)
     {
-        //
+        $Booking = Booking::where('id', $booking)->first(); // Use first() to get a single result
+        $bookingKids = BookingKids::where('booking_id', $booking)->get();
+
+        return view('Admin.booking.bookingkids', compact('Booking', 'bookingKids')); // Use consistent variable names
     }
 
     /**

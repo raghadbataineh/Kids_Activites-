@@ -310,6 +310,21 @@
                         </ul>
                     </li>
 
+                    <li class="menu-item menu-parent">
+                        <a href="javascript:void(0)" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons mdi mdi-book-open"></i>
+                            <div>Booking</div>
+                        </a>
+                        <ul class="menu-sub" id="events-submenu">
+                            <li class="menu-item {{ Route::is('booking.index') ? 'active' : '' }}">
+                                <a href="{{ route('booking.index') }}" class="menu-link">
+                                    <div>all booking list</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
             </aside>
             <!-- / Menu -->
             <!-- Layout container -->
