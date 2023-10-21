@@ -82,12 +82,13 @@ const Review = () => {
                             <h3>3 Comment</h3>
                             {review.map((rev) => (
                                 <div className="media">
-                                    <img src={rev.user.image} className="admin_img" alt="#" />
+                                  <div className="admin_img" > <img src={rev.user.image} alt="#" /> </div> 
                                     <div className="media-body">
                                         <div className="admin_tittle">
                                             <h5>{rev.user.first_name} {rev.user.last_name} <span>{new Date(rev.updated_at).toLocaleString([], { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })} </span></h5>
                                         </div>
-                                        <>{parse(rev.comment)} </>
+                                        
+                                        <div>{parse(rev.comment)} </div>
                                         <a href="#" className="reply_btn">
                                             <i className="arrow_back"></i>Reply
                                         </a>
@@ -113,7 +114,7 @@ const Review = () => {
                         <div className="review_form blog_page_single_item">
                             <h3>Leave a Reply</h3>
                             <form action="#">
-                                <div className="row"></div>
+                                
                                 <ReactQuill
                                     theme="snow"
                                     modules={modules}

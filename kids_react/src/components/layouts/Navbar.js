@@ -32,8 +32,8 @@ const Navbar = () => {
                 <a className="navbar-brand" href="index.html">
                   <img
                     src={image}
-                    srcSet="img/ratina_logo.png 2x"
-                    alt="Kidzo"
+                    srcSet="images/logo3.JPG"
+                    alt="Kidzo" width="189px"
                   />
                 </a>
                 <button

@@ -8,9 +8,13 @@ const Footer = () => {
         <div className="row justify-content-between">
           <div className="col-lg-3 col-sm-6 wow fadeInDown" data-wow-delay=".3s">
             <div className="single_footer_widget">
-              <a href="index.html" className="footer_logo">
-                <img src={image} alt="#" />
-              </a>
+            <img
+                    src={image}
+                    srcSet="images/logo4.png"
+                    alt="Kidzo" width="235px"
+                  />
+                  <br></br>
+                  <br></br>
               <p>
                 Lorem ipsum dolor sit consectetur sicing elit, sed do eitempor
                 idunt ut labor omagn aliqua sed do.

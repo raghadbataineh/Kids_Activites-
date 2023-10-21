@@ -52,7 +52,7 @@ const EventPart = ({events}) => {
         return null; 
     }
 })}
-                              
+
                                 </div>
                             </div>
                         </div>
