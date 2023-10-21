@@ -21,13 +21,17 @@ const Navbar = () => {
       .catch((error) => {
         console.error(error);
       });
+   
+  }, []);
+  useEffect(() => {  
     if (sessionStorage.getItem('user_id') == null) {
 
       setIsLoggedIn(false)
     } else {
       setIsLoggedIn(true)
     }
-  }, []);
+
+  });
   const logout = () => {
     sessionStorage.removeItem('user_id');
     const previousPath = sessionStorage.getItem('current');

@@ -218,7 +218,6 @@ const Review = () => {
                         <div className="review_form blog_page_single_item">
                             <h3>Leave a Reply</h3>
                             <form action="#">
-
                                 <ReactQuill
                                     theme="snow"
                                     ref={reactQuillRef}
@@ -228,7 +227,8 @@ const Review = () => {
                                     name="comment"
                                     onChange={handleProcedureContentChange}
                                 />
-                                <a href="#" onClick={handleSave} className="cu_btn btn_2">
+                            
+                                <a href="#"  onClick={handleSave} className="cu_btn btn_2">
                                     Submit Review
                                 </a>
                             </form>
