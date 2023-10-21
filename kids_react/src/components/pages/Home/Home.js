@@ -8,8 +8,10 @@ import CtaSection from './Sections/teampart';
 
 
 const Home = () => {
+  sessionStorage.setItem('current',window.location.pathname);
   return (
     <div>
+      
       <Banner />
       <Services />
       {/* <CounterSection /> */}

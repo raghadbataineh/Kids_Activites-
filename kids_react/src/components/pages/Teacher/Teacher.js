@@ -6,6 +6,7 @@ import TeamSection from "./Sections/teams";
 import React from 'react'
 
 function Teacher() {
+  sessionStorage.setItem('current',window.location.pathname);
   return (
     <div>
         <Breadcrumb />

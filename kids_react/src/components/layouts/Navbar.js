@@ -29,8 +29,14 @@ const Navbar = () => {
     }
   }, []);
   const logout = () => {
-    sessionStorage.clear();
-    navigate('/');
+    sessionStorage.removeItem('user_id');
+    const previousPath = sessionStorage.getItem('current');
+    if (previousPath) {
+      navigate(previousPath);
+    }
+    else {
+      navigate('/')
+    }
   }
   return (
     <header className="header_part">
@@ -130,14 +136,16 @@ const Navbar = () => {
                       </a>
                       <a href="register" className="cu_btn btn_1">
                         Register
-                      </a></div>) :
-                    (
-                      <div>
-                        <a onClick={logout} href="" className="cu_btn btn_1">
-                          Logout
-                        </a>
-                      </div>
-                    )}
+                      </a>
+                    </div>
+                  ) : (
+                    <div>
+                      <a onClick={logout} href="" className="cu_btn btn_1">
+                        Logout
+                      </a>
+                    </div>
+                  )}
+
                 </div>
               </nav>
             </div>

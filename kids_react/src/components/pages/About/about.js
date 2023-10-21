@@ -6,6 +6,7 @@ import React, { useState, useEffect } from "react";
 const About = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
+    sessionStorage.setItem('current',window.location.pathname);
 }, []);
 const [teamMembers, setTeamMembers] = useState([]);
 

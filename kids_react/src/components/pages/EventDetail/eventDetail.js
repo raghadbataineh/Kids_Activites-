@@ -9,7 +9,9 @@ import Review from './Sections/review';
 const EventDetails = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
+    sessionStorage.setItem('current',window.location.pathname);
 }, []);
+
   return (
     <div>
      <Breadcrumbs />
