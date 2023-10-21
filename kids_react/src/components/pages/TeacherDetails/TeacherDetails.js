@@ -6,6 +6,7 @@ import TeacherDetailsInfo from './Sections/details';
 import React from 'react'
 
 function Teacher_Details() {
+  sessionStorage.setItem('current',window.location.pathname);
   return (
     <div>
         <Breadcrumb />

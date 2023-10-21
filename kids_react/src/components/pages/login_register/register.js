@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
+
 function Register() {
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -10,7 +13,7 @@ function Register() {
     password: '',
     confirmpassword: '',
   });
-  const [error, setError] = useState();
+  const [error, setError] = useState([]);
   const usersubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -20,20 +23,7 @@ function Register() {
     formData.append('password', user.password);
     formData.append('confirmpassword', user.confirmpassword);
 
-    // axios({
-    //   method: 'post', // Ensure you are using POST method here
-    //   url: "http://127.0.0.1:8000/api/sign",
-    //   data: formData,
-    // })
-    //   .then((res) => {
-    //     console.log(res);
-    //     alert('Successfully registered!');
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
 
-    //     alert(error);
-    //   });
     axios({
       method: 'post',
       url: 'http://127.0.0.1:8000/api/sign',
@@ -43,18 +33,19 @@ function Register() {
       .then((res) => {
         console.log(res);
         alert('Successfully registered!');
-        navigate('/login')
-
+navigate('/login');
       })
       .catch((error) => {
         if (error.response) {
           // The request was made and the server responded with a status code
           // that falls out of the range of 2xx
           if (error.response.status === 422) {
+
             // Extract validation errors from the response and format them
             const errorMessages = Object.values(error.response.data.errors).flat().join('\n');
+
             // alert(errorMessages);
-            setError(errorMessages)
+            setError(error.response.data.errors)
           } else {
             console.error('Server Error:', error.response.data);
             alert('Error occurred during registration.');
@@ -81,6 +72,16 @@ function Register() {
                 <div className="row justify-content-center">
                   <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                     <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                    <div style={{ color: 'red' }}>
+                      {error.map((rev, index) => (
+                        <div key={index}>
+                          {++index} {" "}
+                          {rev}
+                          <br />
+                        </div>
+                      ))}
+<br></br>
+                    </div>
                     <form onSubmit={usersubmit} className="mx-1 mx-md-4">
                       <div className="d-flex flex-row align-items-center mb-4">
                         <div className="form-outline flex-fill mb-0">
@@ -113,15 +114,15 @@ function Register() {
 
 
                       <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                        {/* <button type="submit" className="btn btn-primary btn-lg">Register</button> */}
-                        <button   type="submit" className="cu_btn btn_1" >
-                          Register
-                        </button>
-                      </div>
+                          {/* <button type="submit" className="btn btn-primary btn-lg">Register</button> */}
+                          <button type="submit" className="cu_btn btn_1" >
+                            Register
+                          </button>
+                        </div>
 
                     </form>
                     <p className="text-center">
-                      Already Registered? <Link className="sign-btn" to="/login" >Sign in</Link>
+                      Already Registered? <Link className="sign-btn" to="/login">Sign in</Link>
                     </p>
                   </div>
                   <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">

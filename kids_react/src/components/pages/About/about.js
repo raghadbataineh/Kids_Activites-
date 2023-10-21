@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 const About = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
+    sessionStorage.setItem('current',window.location.pathname);
 }, []);
     return (
 
