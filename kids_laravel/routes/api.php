@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrganizerController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BookingController;
 
 
 /*
@@ -39,3 +40,6 @@ Route::post('/storeReview',[ReviewController::class,'storeReview']);
 Route::get('/showReview/{id}',[ReviewController::class,'showReview']);
 Route::get('/category',[CategoryController::class,'category']);
 Route::post('/deleteReview',[ReviewController::class,'deleteReview']);
+
+
+Route::resource('bookings', BookingController::class);
