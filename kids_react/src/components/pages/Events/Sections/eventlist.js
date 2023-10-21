@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 const EventList = () => {
     const navigate = useNavigate()
     const { id } = useParams();
+   
     function formatTime(timeString) {
         const date = new Date(`2023-10-17T${timeString}`);
         const formattedTime = `${String(date.getHours()).padStart(2, "0")}:${String(date.getMinutes()).padStart(2, "0")}`;
@@ -24,6 +25,7 @@ const EventList = () => {
                 setSelectedCategory(id);
                 // sessionStorage.setItem('category_id', id);
                 navigate(`/events/${id}`);
+              
             });
         }
         else {
@@ -33,6 +35,9 @@ const EventList = () => {
                 setEvent(response.data.events);
                 setCategory(response.data.category);
                 navigate(`/events/${category_id}`);
+                if(id=='login'){
+                    navigate(`/login`);
+                }
             });
         }
     };

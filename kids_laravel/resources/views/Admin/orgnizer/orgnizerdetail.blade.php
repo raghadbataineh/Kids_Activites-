@@ -10,32 +10,6 @@
             <div
                 class="d-flex flex-column flex-md-row justify-content-between align-orgnizers-start align-orgnizers-md-center mb-4 gap-3">
 
-                <div class="d-flex flex-column justify-content-center">
-                    <div class="d-flex">
-                        {{-- @foreach ($orgnizers as $orgnizer)
-                            <h5 class="mb-0">Order #{{ $orgnizer->order->id }} </h5>
-
-
-
-                            <span class="badge bg-label-success mx-2 rounded-pill">Paid</span>
-                            @if ($orgnizer->order->status == 'Delivered')
-                                <span class="badge bg-label-success me-1">Delivered</span>
-                            @endif
-                            @if ($orgnizer->order->status == 'out for delivery')
-                                <span class="badge bg-label-primary me-1">Out For Delivery</span>
-                            @endif
-                            @if ($orgnizer->order->status == 'Dispatched')
-                                <span class="badge bg-label-warning me-1">Dispatched</span>
-                            @endif
-
-
-                    </div>
-                    <p class="mt-1 mb-0">{{ $orgnizer->created_at }} </p>
-                @break
-                @endforeach --}}
-            </div>
-
-        </div>
 
         <!-- Order Details Table -->
 
@@ -43,7 +17,7 @@
             <div class="col-12 col-lg-8">
                 <div class="card mb-4">
                     <div class="card-header d-flex justify-content-between align-orgnizers-center">
-                        <h5 class="card-title m-0">Order details</h5>
+                        <h5 class="card-title m-0">Organizer details</h5>
                         <h6 class="m-0"><a href=" javascript:void(0)">Edit</a></h6>
                     </div>
                     <div class="card-datatable table-responsive">
@@ -67,8 +41,7 @@
                                         <td> {{ $orgnizer->name }} </td>
                                         <td>{{ $orgnizer->role }} </td>
                                         <td>{{ $orgnizer->experience_year }} </td>
-                                        {{-- <td>{{ $orgnizer->quantity }}</td> --}}
-                                        {{-- <td>{{ $orgnizer->product->price * $orgnizer->quantity }}JOD</td> --}}
+                                        
                                     </tr>
 
                                   
@@ -77,21 +50,14 @@
                         <div class="d-flex justify-content-end align-orgnizers-center m-3 p-1">
                             <div class="order-calculations">
                                 <div class="d-flex justify-content-between mb-2">
-                                    <span class="w-px-100 text-heading">Subtotal:</span>
-                                    {{-- <h6 class="mb-0">{{ $totalPrice }}JOD</h6> --}}
+                                    <span class="w-px-100 text-heading">Number:</span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-2">
-                                    <span class="w-px-100 text-heading">Discount:</span>
-                                    <h6 class="mb-0">00.00JOD</h6>
+                                    <span class="w-px-100 text-heading">Events:</span>
+                                    <h6 class="mb-0">5</h6>
                                 </div>
-                                <div class="d-flex justify-content-between mb-2">
-                                    <span class="w-px-100 text-heading">Tax:</span>
-                                    <h6 class="mb-0">00.00JOD</h6>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="w-px-100 mb-0">Total:</h6>
-                                    {{-- <h6 class="mb-0">{{ $totalPrice }}JOD</h6> --}}
-                                </div>
+                              
+                             
                             </div>
                         </div>
                     </div>
