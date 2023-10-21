@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Organizer;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class OrganizerController extends Controller
@@ -98,8 +99,17 @@ class OrganizerController extends Controller
     {
         $orgnizer = Organizer::find($id);
         return response()->json($orgnizer);
+        // $orgnizer = Organizer::with('event')->find($id);
+        // $events = $orgnizer->event;
+
+        if (!$orgnizer) {
+            return response()->json(['message' => 'Organizer not found'], 404);
+        }
+    
+        return response()->json(['organizer' => $orgnizer ], 200);
 
     }
+
 
     /**
      * Show the form for editing the specified resource.

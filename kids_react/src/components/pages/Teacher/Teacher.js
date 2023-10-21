@@ -1,5 +1,5 @@
 // import React from "react";
-import ContactPart from "./Sections/contact";
+import CtaSection from "./Sections/contact";
 import Breadcrumb from "./Sections/breadcrumb";
 import TeamSection from "./Sections/teams";
 
@@ -10,7 +10,7 @@ function Teacher() {
     <div>
         <Breadcrumb />
         <TeamSection />
-        <ContactPart />
+        <CtaSection />
     </div>
   )
 }

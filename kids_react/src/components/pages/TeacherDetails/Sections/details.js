@@ -7,7 +7,8 @@ import React, { useState, useEffect } from "react";
 const TeacherDetailsInfo = () => {
   // const [teamMembers, setTeamMembers] = useState([]);
   const { id } = useParams(); // Get the id parameter from the URL
-  const [teacher, setTeacher] = useState(null); //
+  const [teacher, setTeacher] = useState(); //
+  // const [event, setEvent] = useState(null);
 
   useEffect(() => {
  const team =   axios
@@ -20,8 +21,17 @@ const TeacherDetailsInfo = () => {
         console.error("Error fetching teacher details:", error);
       });
   }, [id]); // Include id as a dependency to re-fetch data when the id changes
+ 
+  // axios
+  // .get(`http://localhost:8000/api/events/${id}`)
+  // .then((eventResponse) => {
+  //   setEvent(eventResponse.data);
+  // })
+  // .catch((eventError) => {
+  //   console.error("Error fetching event details:", eventError);
+  // });
 
-  if (!teacher) {
+  if (!teacher ) {
     return <div>Loading...</div>;
   }
 
@@ -36,7 +46,7 @@ const TeacherDetailsInfo = () => {
                          alt="#" className="img-fluid" /> */}
               
               <img
-                src={teacher.image}
+                src={`/images/${teacher.image}`}
                 alt="#j"
                 className="img-fluid "
               />
