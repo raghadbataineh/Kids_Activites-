@@ -35,7 +35,6 @@ class OrganizersTableSeeder extends Seeder
             );
         Organizer::create(
             [
-               
                 'name' => 'Razan Rjuob',
                 'image' => 'razan.jpg',
                 'role' => 'Developer',
@@ -46,7 +45,6 @@ class OrganizersTableSeeder extends Seeder
                 'instagram' => 'https://www.instagram.com/razanrjuob/',
                 'experience_description' => 'Im a dedicated developer with a strong foundation in coding and problem-solving. With 4 years of experience, I have contributed to a wide range of projects, from web applications to mobile apps. My expertise lies in front-end and back-end development, and Iam passionate about writing clean, efficient code that brings ideas to life.
                 ',            ]
-
             );
         Organizer::create(
             [
