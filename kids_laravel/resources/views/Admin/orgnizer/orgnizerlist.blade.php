@@ -7,10 +7,17 @@
         {{-- <a href="{{ route('orgnizer.create') }}" class="btn btn-info" style="width: 150px">
             Add Orgnizer
         </a> --}}
+        <div style="text-align: center;">
+            <h3 style="margin-top: 30px; ">Organizers of Events</h3>
+            <br>
+        </div>  
         
-        <a href="{{ route('orgnizer.create') }}"><button class=" btn btn-primary" tabindex="0" type="button"><span><i
+        
+        
+        <a href="{{ route('orgnizer.create') }}" style="margin-left: 20px"><button class=" btn btn-primary" tabindex="0" type="button"><span><i
             class="mdi mdi-plus me-0 me-sm-1"></i><span class="d-none d-sm-inline-block">Add
             Organizer</span></span></button></a>
+            <br>
         <div class="container-xxl flex-grow-1 container-p-y">
 
 

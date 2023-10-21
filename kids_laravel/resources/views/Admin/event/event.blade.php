@@ -9,15 +9,22 @@
         <div class="container-xxl flex-grow-1 container-p-y">
 
 
-
+            
+              
 
             <div class="app-ecommerce-category over">
                 <!-- Category List Table -->
                 @include('sweetalert::alert')
                 <div class="card">
-                    <a href="{{ url('/event/create') }}"><button class=" btn btn-primary" tabindex="0" type="button"><span><i
+                    <div style="text-align: center;">
+                        <h3 style="margin-top: 30px; ">Events</h3>
+                        <br>
+                    </div>  
+                    
+                    <a href="{{ url('/event/create') }}" style="margin-left: 20px"><button class=" btn btn-primary" tabindex="0" type="button"><span><i
                                     class="mdi mdi-plus me-0 me-sm-1"></i><span class="d-none d-sm-inline-block">Add
                                     Event</span></span></button></a>
+                                    <br>
                     <div class="card-datatable table-responsive">
                         <table class=" table">
                             <thead class="table-light">
