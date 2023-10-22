@@ -4,11 +4,21 @@
 @section('content')
     <div class="content-wrapper">
         <!-- Content -->
+
+        <div style="text-align: center;">
+            <h3 style="margin-top: 30px; ">Users</h3>
+            <br>
+        </div>  
+        
+        
+        
+        
         <a href="{{ url('/users/create') }}" style="margin-left: 20px"><button class=" btn btn-primary" tabindex="0" type="button"><span><i
             class="mdi mdi-plus me-0 me-sm-1"></i><span class="d-none d-sm-inline-block">Add
             users</span></span></button></a>
+            <br>
         
-        
+
         <div class="container-xxl flex-grow-1 container-p-y">
 
 
