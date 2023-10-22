@@ -13,6 +13,10 @@ function AccountSettingsForm() {
     const [changePassword, setChangePassword] = useState(false);
     const [passwordError, setPasswordError] = useState('');
 
+    const handleImage = (e) => {
+        setImage( e.target.files[0] );
+      };
+      
     const handleUpdateProfile = () => {
         axios.put('http://127.0.0.1:8000/api/updateProfile/1', {
         // axios.put('https://64db1755593f57e435b069dd.mockapi.io/sdsdds/1', {
@@ -96,7 +100,7 @@ function AccountSettingsForm() {
             <div className="mb-3 row">
                 <div className="col">
                     <label htmlFor="image" className="form-label">Image</label>
-                    <input type="file" className="form-control" id="image" value={image} onChange={(e) => setImage(e.target.value)} name='image'/>
+                    <input type="file" className="form-control" id="image"  onChange={handleImage} name='image'/>
                 </div>
                 <div className="col">
                     <label htmlFor="phone" className="form-label">Phone</label>

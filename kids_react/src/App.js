@@ -26,8 +26,8 @@ function App() {
     >
     <BrowserRouter>
       <Navbar />
-      <UserProfile/>
-      {/* <Routes>
+      {/* <UserProfile/> */}
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/events/:id" element={<Event />} />
         <Route path="/single/:id" element={<EventDetails />} />
@@ -37,9 +37,10 @@ function App() {
         <Route path="/About" element={<About />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/contact" element={<Contact />} />
+        {/* <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/contact" element={<UserProfile />} />
 
-      </Routes> */}
+      </Routes>
       <Footer />
     </BrowserRouter>
     </PayPalScriptProvider>

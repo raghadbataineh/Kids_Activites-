@@ -33,7 +33,7 @@ class UserController extends Controller
                     Rules\Password::min(8)->mixedCase()->numbers()->symbols(),
                 ],
             ],
-    
+
         );
 
         if ($data->fails()) {
@@ -257,7 +257,12 @@ class UserController extends Controller
         if (!$user) {
             return response()->json(['errors' => 'User not found.'], 404);
         }
-
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('img');
+            $image->move($destinationPath, $filename);
+}
         $user->first_name = $request->input('firstName');
         $user->last_name = $request->input('lastName');
         // $user->email = $request->input('email');
