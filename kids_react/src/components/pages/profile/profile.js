@@ -8,7 +8,11 @@ function UserProfile() {
     const defaultUserData = {
         first_name: "",
         last_name: "",
+<<<<<<< HEAD
         // email: "",
+=======
+        email: "",
+>>>>>>> 5c4ef8fe2d7a15655091f42923290ac22a398238
         image: "",
         phone: "",
 

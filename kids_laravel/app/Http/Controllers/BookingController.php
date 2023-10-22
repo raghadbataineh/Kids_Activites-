@@ -43,7 +43,7 @@ class BookingController extends Controller
     public function store(Request $request)
     {
 
-        
+
 
         // $data = Validator::make(
         //     $request->all(),
@@ -125,17 +125,22 @@ class BookingController extends Controller
 
 
 
-   
+
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function show(Booking $booking)
-    {
-        //
-    }
+    public function show($id)
+{
+    $bookings = Booking::where('user_id', $id)
+                    ->with('user')
+                    ->select('id', 'address', 'kidsNum', 'Total_price', 'payment_method', 'notes')
+                    ->get();
+    return response()->json($bookings);
+}
+
 
     /**
      * Show the form for editing the specified resource.

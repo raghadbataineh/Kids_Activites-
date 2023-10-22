@@ -8,7 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrganizerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BookingController;
-
+use App\Http\Controllers\BookingKidsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +22,10 @@ use App\Http\Controllers\BookingController;
 */
 
 Route::resource('updateProfile', UserController::class);
-
+Route::get('/seeUser/{id}',[ReviewController::class,'show']);
+Route::get('/seeBooking/{id}',[BookingController::class,'show']);
+Route::get('/seeBookingKids/{id}',[BookingKidsController::class,'show']);
+// Route::put('/updateProfile/{id}',[UserController::class,'update']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

@@ -1,0 +1,35 @@
+.my-bookings-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.my-bookings-header {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.booking-list {
+    list-style: none;
+    padding: 0;
+}
+
+.booking-item {
+    margin-bottom: 20px;
+    padding: 16px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.booking-detail {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.booking-detail div {
+    margin-bottom: 8px;
+}

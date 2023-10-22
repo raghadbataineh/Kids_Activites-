@@ -27,7 +27,11 @@ function App() {
     >
     <BrowserRouter>
       <Navbar />
+<<<<<<< HEAD
       
+=======
+      {/* <UserProfile/> */}
+>>>>>>> 5c4ef8fe2d7a15655091f42923290ac22a398238
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/events/:id" element={<Event />} />
@@ -38,8 +42,13 @@ function App() {
         <Route path="/About" element={<About />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+<<<<<<< HEAD
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/contact" element={<Contact />} />
+=======
+        {/* <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/contact" element={<UserProfile />} />
+>>>>>>> 5c4ef8fe2d7a15655091f42923290ac22a398238
 
       </Routes>
       <Footer />
