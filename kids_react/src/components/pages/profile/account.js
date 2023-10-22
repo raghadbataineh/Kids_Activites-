@@ -16,9 +16,9 @@ function AccountSettingsForm() {
     const handleImage = (e) => {
         setImage( e.target.files[0] );
       };
-      
+      const user=sessionStorage.getItem('user_id');
     const handleUpdateProfile = () => {
-        axios.put('http://127.0.0.1:8000/api/updateProfile/1', {
+        axios.put(`http://127.0.0.1:8000/api/updateProfile/${user}`, {
         // axios.put('https://64db1755593f57e435b069dd.mockapi.io/sdsdds/1', {
             firstName,
             lastName,
@@ -115,7 +115,7 @@ function AccountSettingsForm() {
                     <input type="file" className="form-control" id="image"  onChange={handleImage} name='image'/>
                 </div>
                 <div className="col">
-                    <label htmlFor="phone" className="form-label">Phone</label>
+                    <label htmlFor="phone" className="form-label">Email</label>
                     <input type="tel" className="form-control" id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} name='phone' />
                 </div>
             </div>

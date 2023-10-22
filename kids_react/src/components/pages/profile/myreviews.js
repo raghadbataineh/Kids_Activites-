@@ -5,9 +5,9 @@ import parse from 'html-react-parser';
 function MyCommentsPage() {
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(true);
-
+    const user=sessionStorage.getItem('user_id');
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/api/seeReview/1`)
+        axios.get(`http://127.0.0.1:8000/api/seeReview/${user}`)
             .then(response => {
                 setReviews(response.data);
                 setLoading(false);

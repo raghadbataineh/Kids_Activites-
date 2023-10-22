@@ -8,11 +8,7 @@ function UserProfile() {
     const defaultUserData = {
         first_name: "",
         last_name: "",
-<<<<<<< HEAD
-        // email: "",
-=======
         email: "",
->>>>>>> 5c4ef8fe2d7a15655091f42923290ac22a398238
         image: "",
         phone: "",
 
@@ -21,9 +17,9 @@ function UserProfile() {
 
     const [userData, setUserData] = useState(defaultUserData);
     const [activeTab, setActiveTab] = useState('my-bookings');
-
+    const user=sessionStorage.getItem('user_id');
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/api/updateProfile/1')
+        axios.get(`http://127.0.0.1:8000/api/updateProfile/${user}`)
             .then(response => {
                 setUserData(response.data);
                 console.log(response.data);

@@ -5,9 +5,10 @@ import './MyBookingsPage.css'; // Import CSS file
 function MyBookingsPage() {
     const [bookings, setBookings] = useState([]);
     const [loading, setLoading] = useState(true);
+    const user=sessionStorage.getItem('user_id');
 
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/api/seeBooking/1`)
+        axios.get(`http://127.0.0.1:8000/api/seeBooking/${user}`)
             .then(response => {
                 setBookings(response.data);
                 setLoading(false);
@@ -23,7 +24,6 @@ function MyBookingsPage() {
     }
 
     return (
-<<<<<<< HEAD
         <div>
             <div className="row justify-content-center mt-3">
                 <div className="col-lg-7">
@@ -37,11 +37,6 @@ function MyBookingsPage() {
                 </div>
             </div>
             <ul style={{marginTop:'-50px'}}>
-=======
-        <div className="my-bookings-container"> {/* Add a container class */}
-            <h1 className="my-bookings-header">My Bookings</h1> {/* Add a header class */}
-            <ul className="booking-list"> {/* Add a list class */}
->>>>>>> 5c4ef8fe2d7a15655091f42923290ac22a398238
                 {bookings.map(booking => (
                     <li key={booking.id} className="booking-item"> {/* Add an item class */}
                         {/* Name: {booking.name}<br/>
