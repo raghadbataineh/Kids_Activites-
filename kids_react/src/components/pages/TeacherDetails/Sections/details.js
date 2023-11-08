@@ -46,8 +46,11 @@ const TeacherDetailsInfo = () => {
                 alt="#j"
                 className="img-fluid "
               />
+               <br></br>
+          <br></br>
             </div>
           </div>
+         
           <div className="col-lg-5 col-md-7 wow fadeInUp" data-wow-delay=".5s">
             <div className="profile_content mt-5 mt-lg-0">
               <h2 className="mb-0 kid_title">

@@ -38,7 +38,7 @@
     <!-- End Google Tag Manager -->
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="https://html.droitlab.com/kidzo/img/logo.png" />
+    <link rel="icon" type="image/x-icon" href="logooo.jpg" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -209,7 +209,7 @@
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
 
-                <img src="{{ asset('https://html.droitlab.com/kidzo/img/logo.png') }}" alt=""
+                <img src="{{ asset('logooo.jpg') }}" alt=""
                     style="width: 180px; margin-top:25px; margin-left:30px">
 
                 <div class="menu-inner-shadow"></div>
